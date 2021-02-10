@@ -6,4 +6,6 @@ function app()
   console.log(`${package.name} version ${package.version}`);
 }
 
-module.exports = app;
+module.exports = {
+  app: app
+};
