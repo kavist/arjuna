@@ -17,15 +17,16 @@ In NodeJS
 ```js
 
   /** file: app.js **/ 
-  const { app } = require('arjuna');
+  const { App, Text } = require('arjuna');
 
-  module.exports = app;
+  const randomText = App.Text.random(30);
+  const randomText2 = Text.random(30);
 
 ```
 
 📋 Docs
 ---
-Documentations are available [here](https://github.com/gurisa/arjuna/docs)
+Documentations are available [here](https://github.com/gurisa/arjuna/tree/master/docs)
 
 😋 Dependencies
 ---
@@ -47,7 +48,7 @@ Feel free to [contribute](https://github.com/gurisa/arjuna/pulls)
 
 💖 Support
 ---
-This is open source project fee free to contributes and supporting us through: [Idaman](https://idaman.id/arjuna)
+This is open source project feel free to contributes and supporting us through: [Idaman](https://idaman.id/arjuna)
 
 
 📜 License
