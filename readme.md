@@ -3,6 +3,12 @@ Death simple nodejs boilerplate & utility application for Backend Application
 
 📋 Usage
 ---
+Installation using npm
+```md
+  npm install arjuna
+```
+
+Using in NodeJS
 ```js
 
   /** file: app.js **/ 
