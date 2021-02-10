@@ -34,11 +34,11 @@ Death simple nodejs boilerplate & utility application for Backend Application
 ---
 [![](https://github.com/kokoraka.png?size=50)](https://github.com/kokoraka)
 
-Feel free to [contribute] (https://github.com/gurisa/arjuna/pulls)
+Feel free to [contribute](https://github.com/gurisa/arjuna/pulls)
 
 💖 Support
 ---
-This is open source project fee free to contributes and supporting us through: [Idaman] (https://idaman.id/arjuna)
+This is open source project fee free to contributes and supporting us through: [Idaman](https://idaman.id/arjuna)
 
 
 📜 License
