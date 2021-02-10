@@ -1,14 +1,19 @@
 # Arjuna 😎
 Death simple nodejs boilerplate & utility application for Backend Application
 
-📋 Usage
+❓ Motivations
 ---
-Installation using npm
+- Provide easy to use interfaces for nodejs application
+- Standarize coding style
+
+🖖 Usage
+---
+Using npm
 ```md
   npm install arjuna
 ```
 
-Using in NodeJS
+In NodeJS
 ```js
 
   /** file: app.js **/ 
@@ -18,21 +23,20 @@ Using in NodeJS
 
 ```
 
-❓ Motivations
+📋 Docs
 ---
-- Provide easy to use interfaces for nodejs application
-- Standarize coding style
+Documentations are available [here](https://github.com/gurisa/arjuna/docs)
 
 😋 Dependencies
 ---
 ```md
-1. Framework: express, express-jwt, express-validator
-2. Utility: nodemon, lodash, moment, numeral, body-parser, dotenv, protobufjs, slugify, html-entities, html-to-text, uuid
-3. ORM: sequelize, mysql2, mongoose
-4. Networking & Messaging: axios, request, amqplib
-5. Security: bcryptjs, jsonwebtoken
-6. Logging: morgan, rotating-file-stream
-7. Testing: mocha, nyc, chai, chai-like, chai-things, supertest
+1. ❌ Framework: express, express-jwt, express-validator
+2. ⚠️ Utility: nodemon, lodash, moment, numeral, body-parser, dotenv, protobufjs, slugify, html-entities, html-to-text, uuid
+3. ⚠️ ORM: sequelize, mysql2, mongoose
+4. ⚠️ Networking & Messaging: axios, request, amqplib
+5. ❌ Security: bcryptjs, jsonwebtoken
+6. ❌ Logging: morgan, rotating-file-stream
+7. ❌ Testing: mocha, nyc, chai, chai-like, chai-things, supertest
 ```
 
 🤩 Contributor
