@@ -1,0 +1,28 @@
+{
+  "name": "arjuna",
+  "version": "1.0.0",
+  "description": "nodejs boilerplate & utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gurisa/arjuna.git"
+  },
+  "keywords": [
+    "nodejs",
+    "expressjs",
+    "boilerplate",
+    "laravel"
+  ],
+  "author": "Raka Suryaardi Widjaja <raka.suryadi@gmail.com> (gurisa.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gurisa/arjuna/issues"
+  },
+  "homepage": "https://github.com/gurisa/arjuna#readme",
+  "engines": {
+    "node": ">= 8.0.0"
+  }
+}
