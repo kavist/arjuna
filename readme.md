@@ -1,4 +1,4 @@
-# Arjuna
+# Arjuna 😎
 Death simple nodejs boilerplate & utility application for Backend Application
 
 📋 Usage
@@ -6,8 +6,7 @@ Death simple nodejs boilerplate & utility application for Backend Application
 ```js
 
   /** file: app.js **/ 
-  const arjuna = require('arjuna');
-  const app = arjuna.app();
+  const { app } = require('arjuna');
 
   module.exports = app;
 
