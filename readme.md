@@ -77,10 +77,10 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ⚠️ | Protobuf    | encode | |
 | ⚠️ |             | decode | |
 | ⚠️ |             | verify | |
-| ⚠️ | Text        | random | |
-| ⚠️ |             | isValidYoutubeUrl | |
-| ⚠️ |             | getYoutubeVideoId | |
-| ⚠️ |             | slugify | |
+| ✔️ | Text        | random | |
+| ✔️ |             | isValidYoutubeUrl | |
+| ✔️ |             | getYoutubeVideoId | |
+| ✔️ |             | slugify | |
 | ❌ | Config      | set | |
 | ❌ |             | get | |
 | ❌ |             | all | |
