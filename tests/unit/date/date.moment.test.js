@@ -32,5 +32,8 @@ describe('moment method', function() {
     expect(momentInstance.format('YYYY-MM-DD HH:mm:ss'))
       .to.equal(validMomentInstance.format('YYYY-MM-DD HH:mm:ss'));
   });
+  it('should success with valid momentjs with default parameters', async function() {
+    Date.moment();
+  });
 
 });

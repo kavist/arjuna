@@ -10,6 +10,10 @@ class Response
     error = null
   )
   {
+    this.code = "200";
+    this.status = "SUCCESS";
+    this.message = "ok";
+
     if (code) {
       this.setCode(code);
     }
@@ -29,7 +33,7 @@ class Response
 
   setCode(code)
   {
-    if (!status) {
+    if (!code || typeof code !== "string") {
       throw new Error('Invalid params');
     }
     this.code = code;
@@ -38,7 +42,7 @@ class Response
 
   setStatus(status)
   {
-    if (!status) {
+    if (!status || typeof status !== "string") {
       throw new Error('Invalid params');
     }
     this.status = status.toUpperCase();
@@ -47,7 +51,7 @@ class Response
 
   setMessage(message)
   {
-    if (!status) {
+    if (!message || typeof message !== "string") {
       throw new Error('Invalid params');
     }
     this.message = message;
@@ -56,13 +60,20 @@ class Response
 
   setData(data)
   {
-    this.data = data;
+    if (data !== null || data !== undefined) {
+      if (typeof data !== "object" && typeof data !== "array") {
+        throw new Error('Invalid params');
+      }
+      this.data = data;
+    }
     return this;
   }
 
   setError(error)
   {
-    this.error = error;
+    if (error) {
+      this.error = error;
+    }
     return this;
   }
 
@@ -84,7 +95,7 @@ class Response
 
   toJson()
   {
-    return this.toObject().toJson();
+    return JSON.stringify(this.toObject());
   }
 
   success()
