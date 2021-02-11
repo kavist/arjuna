@@ -1,0 +1,13 @@
+
+syntax = "proto3";
+
+package transaction;
+
+message Transaction {
+  uint64 id = 1;
+  string code = 2;
+  string status = 3;
+  string inquiry_at = 4;
+  string created_at = 5;
+  string updated_at = 6;
+}

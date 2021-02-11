@@ -1,0 +1,13 @@
+
+syntax = "proto3";
+
+package user;
+
+message User {
+  required uint32 id = 1;
+  required string name = 2;
+  required string username = 3;
+  required string email = 4;
+  optional string photo = 5;
+  optional string gender = 6;
+}

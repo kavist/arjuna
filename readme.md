@@ -74,9 +74,10 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ⚠️ |             | registerStaticFunctions | |
 | ⚠️ |             | registerStaticFunction | |
 | ⚠️ |             | getMethodNames | |
-| ⚠️ | Protobuf    | encode | |
-| ⚠️ |             | decode | |
-| ⚠️ |             | verify | |
+| ✔️ | Protobuf    | encode | |
+| ✔️ |             | decode | |
+| ✔️ |             | verify | |
+| ✔️ |             | createSchema | |
 | ✔️ | Text        | random | |
 | ✔️ |             | isValidYoutubeUrl | |
 | ✔️ |             | getYoutubeVideoId | |
@@ -106,7 +107,7 @@ Running test with coverage
 
 Test Coverages
 
-![Test coverages](https://github.com/gurisa/arjuna/blob/master/assets/coverage.png?raw=true)
+![Test coverages](https://github.com/gurisa/arjuna/blob/master/assets/image/coverage.png?raw=true)
 
 😋 Dependencies
 ---
