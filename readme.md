@@ -1,10 +1,11 @@
 # Arjuna 😎
-Death simple nodejs boilerplate & utility application for Backend Application
+Death simple nodejs boilerplate & utility wrapper
 
 ❓ Motivations
 ---
 - Provide easy to use interfaces for nodejs application
 - Standarize coding style
+- Decrease repetable things (DRY)
 
 🖖 Usage
 ---
@@ -27,6 +28,22 @@ In NodeJS
 📋 Docs
 ---
 Documentations are available [here](https://github.com/gurisa/arjuna/tree/master/docs)
+
+✔️ Test & Coverages
+---
+Running test without coverage + watchers
+```md
+  npm run test-minimal
+```
+
+Running test with coverage
+```md
+  npm run test
+```
+
+Test Coverages
+
+![Test coverages](https://github.com/[gurisa]/[arjuna]/blob/[master]/assets/coverage.png?raw=true)
 
 😋 Dependencies
 ---

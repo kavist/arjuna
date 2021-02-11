@@ -7,10 +7,12 @@ Date utility function
 **Available methods**
 ```js
 
-  const { Date } = require('arjuna');
+  const { Date: DateUtil } = require('arjuna');
 
-  const currentDate = Date.getFullDate();
-  const moment = Date.moment();
+  const date = new Date();
+
+  const currentDate = DateUtil.getFullDate(date);
+  const moment = DateUtil.moment(date);
   
 ```
 

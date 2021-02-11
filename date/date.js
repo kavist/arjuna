@@ -4,10 +4,9 @@ const moment = require('moment');
 class DateUtil 
 {
 
-  static getFullDate()
+  static getFullDate(date = new Date())
   {
-    const date = new Date();
-    return `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    return moment(date).format('YYYY-MM-DD HH:mm:ss');
   }
   
   static moment(date = new Date())
