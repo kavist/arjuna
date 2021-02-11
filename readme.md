@@ -59,8 +59,8 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | registerStaticFunctions | |
 | ✔️ |             | createSqlModel | |
 | ✔️ |             | getOption | |
-| ⚠️ | Number      | random | |
-| ⚠️ |             | currency | |
+| ✔️ | Number      | random | |
+| ✔️ |             | currency | |
 | ⚠️ | Repository  | all | |
 | ⚠️ |             | get | |
 | ⚠️ |             | create | |

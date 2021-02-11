@@ -1,4 +1,4 @@
-const { isInteger } = require("lodash");
+
 const numeral = require("numeral");
 
 initLocalId();
@@ -8,7 +8,7 @@ class Number
 
   static random(length = 1)
   {
-		if (!isInteger(length)) {
+		if (typeof length !== "number") {
 			throw new Error("Invalid length");
 		}
 		let chars = '0123456789';
@@ -19,10 +19,24 @@ class Number
     return randomNumbers;
 	}
 
-	static currency(number, prefix = 'Rp')
+	static currency(params)
 	{
-		numeral.locale('id');
-		return `${prefix}${numeral(number).format('0,00')}`;
+		if (!params || !params.amount) {
+			throw new Error('Invalid params');
+		}
+		if (params.locale && typeof params.locale !== "string") {
+			throw new Error('Invalid params');
+		}
+		numeral.locale(params.locale || 'id');
+
+		let formatedCurrency = '';
+		if (params.prefix) {
+			formatedCurrency += `${params.prefix}`;
+		}
+
+		formatedCurrency += `${numeral(params.amount).format('0,00')}`;
+
+		return formatedCurrency;
 	}
 
 }
