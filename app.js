@@ -1,12 +1,15 @@
 
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
+
 const Entity = require('./entities/entity');
 const Model = require('./models/model');
 const Repository = require('./repositories/repository');
 const Date = require('./date/date');
-const Request = require('./utilities/http/request');
-const Response = require('./utilities/http/response');
+const Request = require('./http/request');
+const Response = require('./http/response');
 const Number = require('./number/number');
-const Text = require('./utilities/text/text');
+const Text = require('./text/text');
 const Protobuf = require('./serialization/protobuf');
 
 const App = {

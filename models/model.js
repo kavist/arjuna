@@ -21,7 +21,7 @@ class Model
     this.schema = params.schema;
     this.option = params.option;
 
-    if (params.protecteds) {
+    if (params.protecteds && Array.isArray(params.protecteds)) {
       this.protecteds = params.protecteds;
     }
 
