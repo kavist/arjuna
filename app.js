@@ -2,26 +2,26 @@
 const path = require('path');
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
-const Entity = require('./entities/entity');
-const Model = require('./models/model');
-const Repository = require('./repositories/repository');
 const Date = require('./date/date');
+const Entity = require('./entities/entity');
 const Request = require('./http/request');
 const Response = require('./http/response');
+const SqlModel = require('./models/sql-model');
 const Number = require('./number/number');
-const Text = require('./text/text');
+const Repository = require('./repositories/repository');
 const Protobuf = require('./serialization/protobuf');
+const Text = require('./text/text');
 
 const App = {
-  Entity: Entity,
-  Model: Model,
-  Repository: Repository,
   Date: Date,
+  Entity: Entity,
   Request: Request,
   Response: Response,
+  SqlModel: SqlModel,
   Number: Number,
+  Repository: Repository,
+  Protobuf: Protobuf,
   Text: Text,
-  Protobuf: Protobuf
 };
 
 module.exports = {

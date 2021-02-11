@@ -20,14 +20,76 @@ In NodeJS
   /** file: app.js **/ 
   const { App, Text } = require('arjuna');
 
-  const randomText = App.Text.random(30);
-  const randomText2 = Text.random(30);
+  const randomText = App.Text.random(30); //anifjaokpxb7589ewsmgiodkapnmkvc
+  const randomText2 = Text.random(30); //ifjaok89ewsmapxbgiodkap75nnmkvc
 
 ```
 
 📋 Docs
 ---
-Documentations are available [here](https://github.com/gurisa/arjuna/tree/master/docs)
+
+
+| Status | Facade      | Method      | Description |
+| --- | ------      | ------      | ------ |
+| ✔️ | Date        | getFullDate | |
+| ✔️ |             | moment      | |
+| ✔️ | Entity      | setParams   | |
+| ⚠️ | Request     | get         | |
+| ⚠️ |             | post        | |
+| ⚠️ |             | all         | |
+| ✔️ | Response    | setCode     | |
+| ✔️ |             | setStatus   | |
+| ✔️ |             | setMessage   | |
+| ✔️ |             | setData   | |
+| ✔️ |             | setError   | |
+| ✔️ |             | toObject   | |
+| ✔️ |             | toJson   | |
+| ✔️ |             | success   | |
+| ✔️ |             | error   | |
+| ✔️ |             | invalid   | |
+| ✔️ |             | forbidden   | |
+| ✔️ |             | notFound   | |
+| ✔️ |             | unauthenticate   | |
+| ✔️ |             | badGateway   | |
+| ✔️ |             | requestTimeout   | |
+| ⚠️ | SqlModel    | instance | |
+| ⚠️ |             | registerDefaultStaticFunctions | |
+| ⚠️ |             | registerStaticFunctions | |
+| ⚠️ |             | getOption | |
+| ⚠️ | Number      | random | |
+| ⚠️ |             | currency | |
+| ⚠️ | Repository  | all | |
+| ⚠️ |             | get | |
+| ⚠️ |             | create | |
+| ⚠️ |             | first | |
+| ⚠️ |             | update | |
+| ⚠️ |             | delete | |
+| ⚠️ |             | insert | |
+| ⚠️ |             | findByIdentifier | |
+| ⚠️ |             | generateQueryFromParams | |
+| ⚠️ |             | getTransactionFromParams | |
+| ⚠️ |             | registerStaticFunctions | |
+| ⚠️ |             | registerStaticFunction | |
+| ⚠️ |             | getMethodNames | |
+| ⚠️ | Protobuf    | encode | |
+| ⚠️ |             | decode | |
+| ⚠️ |             | verify | |
+| ⚠️ | Text        | random | |
+| ⚠️ |             | isValidYoutubeUrl | |
+| ⚠️ |             | getYoutubeVideoId | |
+| ⚠️ |             | slugify | |
+| ❌ | Config      | set | |
+| ❌ |             | get | |
+| ❌ |             | all | |
+| ❌ | Log         | report | |
+| ❌ |             | customReport | |
+| ❌ |             | localReport | |
+| ❌ |             | consoleReport | |
+| ❌ |             | onlineReport | |
+| ❌ |             | customReport | |
+---
+
+Complete documentations are available [here](https://github.com/gurisa/arjuna/tree/master/docs)
 
 ✔️ Test & Coverages
 ---
@@ -48,13 +110,14 @@ Test Coverages
 😋 Dependencies
 ---
 ```md
-1. ❌ Framework: express, express-jwt, express-validator
-2. ⚠️ Utility: nodemon, lodash, moment, numeral, body-parser, dotenv, protobufjs, slugify, html-entities, html-to-text, uuid
-3. ⚠️ ORM: sequelize, mysql2, mongoose
-4. ⚠️ Networking & Messaging: axios, request, amqplib
+1. ⚠️ Utility: moment, numeral, uuid, nodemon, lodash, body-parser, dotenv, protobufjs, slugify, html-entities, html-to-text
+2. ⚠️ ORM: sequelize, mysql2, mongoose
+3. ⚠️ Networking: axios
+4. ⚠️ Messaging: amqplib
 5. ❌ Security: bcryptjs, jsonwebtoken
 6. ❌ Logging: morgan, rotating-file-stream
 7. ❌ Testing: mocha, nyc, chai, chai-like, chai-things, supertest
+8. ❌ Framework: express, express-jwt, express-validator
 ```
 
 🤩 Contributor

@@ -49,30 +49,6 @@ class Request
     return await axios.all(params.requests);
   }
 
-  syncGet(url, params = null)
-  {
-    url = (this.endpoint !== null) ? this.endpoint + '' + url : url;
-    if (params && params.config) {
-      return axios.get(url, {
-        ...params.config,
-          ...this.config,
-      }).catch(() => null);
-    }
-    return axios.get(url, this.config).catch(() => null);
-  }
-
-  syncPost(url, params = null)
-  {
-    url = (this.endpoint !== null) ? this.endpoint + '' + url : url;
-    if (params && params.config) {
-      return axios.post(url, params.data, {
-        ...params.config,
-          ...this.config,
-      }).catch(() => null);
-    }
-    return axios.post(url, params.data, this.config).catch(() => null);
-  }
-
 }
 
 module.exports = Request;

@@ -2,7 +2,7 @@
 const { Sequelize } = require("sequelize");
 const mongoose = require('mongoose');
 
-const { db } = require('./config');
+const { dbSql, dbDocument } = require('./config');
 
 const logger = (message) => {
   console.log("[QUERY_LOG] \n" + message);
@@ -29,31 +29,26 @@ const handleMongoose = (connection) => {
 };
 
 const connections = {
-  main: new Sequelize({
-    dialect: db.main.connection,
-    host: db.main.host,
-    port: db.main.port,
-    database: db.main.database,
-    username: db.main.username,
-    password: db.main.password,
+  sql: new Sequelize({
+    dialect: dbSql.connection,
+    host: dbSql.host,
+    port: dbSql.port,
+    database: dbSql.database,
+    username: dbSql.username,
+    password: dbSql.password,
     logging: logger,
     timezone: "+07:00",
   }),
-  document: mongoose.createConnection(db.document.connection, {
+  document: mongoose.createConnection(dbDocument.connection, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true,
     retryWrites: false
-  }), 
-  memory: {
-    auth: {
-      tokens: [ /** value: {access_token: '', refresh_token: ''} */],
-    }
-  }
+  }),
 };
 
-handleSequelize(connections.main);
+handleSequelize(connections.sql);
 handleMongoose(connections.document);
 
 module.exports = connections

@@ -8,7 +8,7 @@ Database model (ORM)
 
 ```js
   const { main: database } = require('../config/database');
-  const { Model } = require('arjuna');
+  const { SqlModel: Model } = require('arjuna');
 
   class User extends Model
   {

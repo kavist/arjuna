@@ -10,24 +10,20 @@ module.exports = {
     host: process.env.APP_HOST,
     port: process.env.APP_PORT,
   },
-  db: {
-    main: {
-      connection: process.env.DB_MAIN_CONNECTION,
-      host: process.env.DB_MAIN_HOST,
-      port: process.env.DB_MAIN_PORT,
-      database: process.env.DB_MAIN_DATABASE,
-      username: process.env.DB_MAIN_USERNAME,
-      password: process.env.DB_MAIN_PASSWORD,
-      timezone: process.env.DB_MAIN_TIMEZONE,
-      log: process.env.DB_MAIN_LOG,
-    },
-    document: {
-      connection: process.env.DB_DOCUMENT_CONNECTION,
-    }
+  dbSql: {
+    connection: process.env.DB_MAIN_CONNECTION,
+    host: process.env.DB_MAIN_HOST,
+    port: process.env.DB_MAIN_PORT,
+    database: process.env.DB_MAIN_DATABASE,
+    username: process.env.DB_MAIN_USERNAME,
+    password: process.env.DB_MAIN_PASSWORD,
+    timezone: process.env.DB_MAIN_TIMEZONE,
+    log: process.env.DB_MAIN_LOG,
   },
-  message: {
-    main: {
-      connection: process.env.MG_MAIN_CONNECTION,
-    }
+  dbDocument: {
+    connection: process.env.DB_DOCUMENT_CONNECTION,
+  },
+  messagingMain: {
+    connection: process.env.MG_MAIN_CONNECTION,
   }
 };
