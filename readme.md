@@ -43,7 +43,7 @@ Running test with coverage
 
 Test Coverages
 
-![Test coverages](https://github.com/[gurisa]/[arjuna]/blob/[master]/assets/coverage.png?raw=true)
+![Test coverages](https://github.com/gurisa/arjuna/blob/master/assets/coverage.png?raw=true)
 
 😋 Dependencies
 ---
