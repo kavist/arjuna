@@ -54,10 +54,11 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | unauthenticate   | |
 | ✔️ |             | badGateway   | |
 | ✔️ |             | requestTimeout   | |
-| ⚠️ | SqlModel    | instance | |
-| ⚠️ |             | registerDefaultStaticFunctions | |
-| ⚠️ |             | registerStaticFunctions | |
-| ⚠️ |             | getOption | |
+| ✔️ | SqlModel    | instance | |
+| ✔️ |             | registerDefaultStaticFunctions | |
+| ✔️ |             | registerStaticFunctions | |
+| ✔️ |             | createSqlModel | |
+| ✔️ |             | getOption | |
 | ⚠️ | Number      | random | |
 | ⚠️ |             | currency | |
 | ⚠️ | Repository  | all | |

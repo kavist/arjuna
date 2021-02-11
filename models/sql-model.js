@@ -27,11 +27,12 @@ class SqlModel
       option: params.option
     });
     
-    this.model = this.connection.define(
-      this.tableName, 
-      this.schema, 
-      this.option
-    );
+    this.model = SqlModel.createSqlModel({
+      connection: this.connection,
+      tableName: this.tableName,
+      schema: this.schema,
+      option: this.option,
+    });
 
     this.protecteds = params.protecteds || [];
 
@@ -44,6 +45,19 @@ class SqlModel
   instance()
   {
     return this.model;
+  }
+
+  static createSqlModel(params)
+  {
+    if (!params || !params.connection || !params.tableName || 
+      !params.schema || !params.option) {
+      throw new Error('Invalid params');
+    }
+    return params.connection.define(
+      params.tableName, 
+      params.schema, 
+      params.option
+    );
   }
 
   static registerDefaultStaticFunctions(params)
@@ -87,13 +101,13 @@ class SqlModel
     if (!params || !params.tableName) {
       throw new Error('Invalid params');
     }
-    return _merge(params.option, {
+    return _merge({
       tableName: params.tableName,
       freezeTableName: true,
       timestamps: true,
       createdAt: 'created_at',
       updatedAt: 'updated_at',
-    });
+    }, params.option);
   }
 
 }
