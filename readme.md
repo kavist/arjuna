@@ -28,6 +28,8 @@ In NodeJS
 📋 Docs
 ---
 
+Complete documentations are available [here](https://github.com/gurisa/arjuna/tree/master/docs)
+
 
 | Status | Facade      | Method      | Description |
 | --- | ------      | ------      | ------ |
@@ -88,8 +90,6 @@ In NodeJS
 | ❌ |             | onlineReport | |
 | ❌ |             | customReport | |
 ---
-
-Complete documentations are available [here](https://github.com/gurisa/arjuna/tree/master/docs)
 
 ✔️ Test & Coverages
 ---
