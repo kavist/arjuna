@@ -25,5 +25,8 @@ module.exports = {
   },
   messagingMain: {
     connection: process.env.MG_MAIN_CONNECTION,
+  },
+  logSlack: {
+    webhook_url: process.env.LOG_SLACK_MAIN_WEBHOOK_URL
   }
 };

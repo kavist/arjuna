@@ -1,12 +1,14 @@
 {
   "name": "arjuna",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "nodejs boilerplate & utility",
   "main": "app.js",
   "scripts": {
     "dev": "node node_modules/nodemon/bin/nodemon.js",
     "test": "nyc mocha -r dotenv/config dotenv_config_path=./.env.test ./tests/**/*.test.js --reporter spec --recursive --exit --inspect=0.0.0.0:9229 --timeout 12000",
-    "test-minimal": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./tests/**/*.test.js"
+    "test-minimal": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./tests/**/*.test.js",
+    "test-unit": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./tests/unit/**/*.test.js",
+    "test-integration": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./tests/integration/**/*.test.js"
   },
   "repository": {
     "type": "git",

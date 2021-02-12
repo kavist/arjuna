@@ -4,8 +4,9 @@ Death simple nodejs boilerplate & utility wrapper
 ❓ Motivations
 ---
 - Provide easy to use interfaces for nodejs application
-- Standarize coding style
-- Decrease repeatable things (DRY)
+- Standarize coding style among teams and applications
+- Decrease repeatable things, write once run everywhere (DRY)
+- Increase software quality by using well tested utility library
 
 🖖 Usage
 ---
@@ -18,9 +19,11 @@ In NodeJS
 ```js
 
   /** file: app.js **/ 
-  const { App, Text } = require('arjuna');
+  const { App } = require('arjuna'); //compact version
 
   const randomText = App.Text.random(30); //anifjaokpxb7589ewsmgiodkapnmkvc
+
+  const { Text } = require('arjuna'); //lightweight version
   const randomText2 = Text.random(30); //ifjaok89ewsmapxbgiodkap75nnmkvc
 
 ```
@@ -33,15 +36,16 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 
 | Status | Facade      | Method      | Description |
 | --- | ------      | ------      | ------ |
-| ✔️ | Date        | getFullDate | |
-| ✔️ |             | moment      | |
-| ✔️ | Entity      | setParams   | |
-| ✔️ | Request     | get         | |
-| ✔️ |             | post        | |
-| ✔️ |             | put        | |
-| ✔️ |             | patch        | |
-| ✔️ |             | delete        | |
-| ✔️ |             | multiple         | |
+| ✔️ | Date        | getFullDate | get current date (Format: YYYY-MM-DD HH:mm:ss |
+| ✔️ |             | getOnlyDate | get current date (Format: YYYY-MM-DD |
+| ✔️ |             | moment      | return moment instance |
+| ✔️ | Entity      | setParams   | set entity property from an object |
+| ✔️ | Request     | get         | perform http get request |
+| ✔️ |             | post        | perform http post request |
+| ✔️ |             | put        | perform http put request  |
+| ✔️ |             | patch        | perform http patch request  |
+| ✔️ |             | delete        | perform http delete request  |
+| ✔️ |             | multiple         | perform multiple http request  |
 | ✔️ | Response    | setCode     | |
 | ✔️ |             | setStatus   | |
 | ✔️ |             | setMessage   | |
@@ -57,6 +61,10 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | unauthenticate   | |
 | ✔️ |             | badGateway   | |
 | ✔️ |             | requestTimeout   | |
+| ✔️ | Log         | report | |
+| ✔️ |             | consoleReport | |
+| ✔️ |             | localReport | |
+| ✔️ |             | onlineReport | |
 | ✔️ | SqlModel    | instance | |
 | ✔️ |             | registerDefaultStaticFunctions | |
 | ✔️ |             | registerStaticFunctions | |
@@ -85,15 +93,9 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | isValidYoutubeUrl | |
 | ✔️ |             | getYoutubeVideoId | |
 | ✔️ |             | slugify | |
-| ❌ | Config      | set | |
-| ❌ |             | get | |
-| ❌ |             | all | |
-| ❌ | Log         | report | |
-| ❌ |             | customReport | |
-| ❌ |             | localReport | |
-| ❌ |             | consoleReport | |
-| ❌ |             | onlineReport | |
-| ❌ |             | customReport | |
+| ✔️ | Config      | set | Set object data by a unique key into file |
+| ✔️ |             | get | get object data by a unique key from a file |
+| ✔️ |             | all | get all object data from file |
 ---
 
 ✔️ Test & Coverages
