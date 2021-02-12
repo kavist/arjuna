@@ -30,6 +30,15 @@ class Repository
     if (!params) {
       throw new Error("Invalid params");
     }
+    if (params.filter !== undefined && (typeof params.filter !== "object")) {
+      throw new Error("Invalid params");
+    }
+    if (params.attributes !== undefined && !Array.isArray(params.attributes)) {
+      throw new Error("Invalid params");
+    }
+    if (params.order !== undefined && !Array.isArray(params.order)) {
+      throw new Error("Invalid params");
+    }
     return await this.modelInstance.findAll({
       attributes: params.attributes,
       where: params.filter,
@@ -43,6 +52,12 @@ class Repository
     if (!params || !params.data) {
       throw new Error('Invalid params');
     }
+    if (params.data !== undefined && typeof params.data !== "object") {
+      throw new Error('Invalid params');
+    }
+    if (params.option !== undefined && typeof params.option !== "object") {
+      throw new Error('Invalid params');
+    }
     return await this.modelInstance.create(
       params.data, 
       params.option || null
@@ -54,19 +69,41 @@ class Repository
     if (!params || !params.filter) {
       throw new Error('Invalid params');
     }
+    if (params.filter !== undefined && (typeof params.filter !== "object")) {
+      throw new Error("Invalid params");
+    }
+    if (params.attributes !== undefined && !Array.isArray(params.attributes)) {
+      throw new Error("Invalid params");
+    }
+    if (params.order !== undefined && !Array.isArray(params.order)) {
+      throw new Error("Invalid params");
+    }
+    if (params.paranoid !== undefined && typeof params.paranoid !== "boolean") {
+      throw new Error("Invalid params");
+    }
     return await this.modelInstance.findOne({
       attributes: params.attributes,
       where: params.filter,
-      paranoid: params.paranoid,
       order: params.order,
+      paranoid: params.paranoid,
       transaction: Repository.getTransactionFromParams(params)
     });
   }
 
+  /**
+   * return Array containing one element of 
+   * total numbers of updated records
+   */
   async update(params)
   {
     if (!params || !params.data || !params.filter) {
       throw new Error('Invalid params');
+    }
+    if (params.filter !== undefined && (typeof params.filter !== "object")) {
+      throw new Error("Invalid params");
+    }
+    if (params.paranoid !== undefined && typeof params.paranoid !== "boolean") {
+      throw new Error("Invalid params");
     }
     return await this.modelInstance.update(params.data, {
       where: params.filter,
@@ -75,10 +112,19 @@ class Repository
     });
   }
 
+  /**
+   * return @int total numbers of deleted records
+   */
   async delete(params)
   {
     if (!params || !params.filter) {
       throw new Error('Invalid params');
+    }
+    if (params.filter !== undefined && (typeof params.filter !== "object")) {
+      throw new Error("Invalid params");
+    }
+    if (params.force !== undefined && typeof params.force !== "boolean") {
+      throw new Error("Invalid params");
     }
     return await this.modelInstance.destroy({
       where: params.filter,
@@ -87,23 +133,32 @@ class Repository
   }
 
   async insert(params)
-  {
+  {    
     if (!params || !params.data) {
+      throw new Error('Invalid params');
+    }
+    if (params.data !== undefined && !Array.isArray(params.data)) {
+      throw new Error('Invalid params');
+    }
+    if (params.option !== undefined && typeof params.option !== "object") {
       throw new Error('Invalid params');
     }
     return await this.modelInstance.bulkCreate(
       params.data, 
-      params.option || null
+      params.option
     );
   }
 
   async findByIdentifier(params)
   {
-    if (!params || !params.identifier || 
-      !params.columns || !Array.isArray(params.columns) &&
-      params.columns.length > 0) {
+    if (!params || !params.identifier) {
       throw new Error('Invalid params');
     }
+    if (!params.columns || !Array.isArray(params.columns) || 
+      params.columns.length < 1) {
+      throw new Error('Invalid params');
+    }
+
     const filter = params.columns.map(column => {
       return {
         [column]: params.identifier
@@ -157,29 +212,48 @@ class Repository
 
   static getTransactionFromParams(params)
   {
-    return params.option && params.option.transaction ? 
-      params.option.transaction : 
-      (params.transaction ? params.transaction : null);
+    if (params) {
+      if (params.transaction !== undefined) {
+        return params.transaction;
+      }
+      else if (params.option !== undefined && 
+        params.option.transaction !== undefined) {
+        return params.option.transaction;
+      }
+    }
+    return null;
   }
 
-  static registerStaticFunctions(classInstance)
+  static registerStaticFunctions(classReference)
   {
-    Repository.getMethodNames(classInstance).forEach(methodName => {
-      Repository.registerStaticFunction(classInstance, methodName);
+    if (!classReference || typeof classReference !== "function") {
+      throw new Error('Invalid params');
+    }
+    Repository.getMethodNames(classReference).forEach(methodName => {
+      Repository.registerStaticFunction(classReference, methodName);
     });
   }
 
-  static registerStaticFunction(classInstance, methodName)
+  static registerStaticFunction(classReference, methodName)
   {
-    classInstance[methodName] = function(params) {
-      return (new classInstance())[methodName](params);
+    if (!classReference || typeof classReference !== "function") {
+      throw new Error('Invalid params');
+    }
+    if (!methodName || typeof methodName !== "string") {
+      throw new Error('Invalid params');
+    }
+    classReference[methodName] = function(params) {
+      return (new classReference())[methodName](params);
     };
   }
 
-  static getMethodNames(classInstance)
+  static getMethodNames(classReference)
   {
+    if (!classReference || typeof classReference !== "function") {
+      throw new Error('Invalid params');
+    }
     return [
-      ...Object.getOwnPropertyNames(classInstance.prototype),
+      ...Object.getOwnPropertyNames(classReference.prototype),
       ...Object.getOwnPropertyNames(Repository.prototype),
     ].filter(methodName => {
       return methodName !== "constructor" && 
@@ -191,4 +265,4 @@ class Repository
 
 }
 
-module.exports = Repository
+module.exports = Repository;

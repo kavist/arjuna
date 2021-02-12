@@ -5,7 +5,7 @@ Death simple nodejs boilerplate & utility wrapper
 ---
 - Provide easy to use interfaces for nodejs application
 - Standarize coding style
-- Decrease repetable things (DRY)
+- Decrease repeatable things (DRY)
 
 🖖 Usage
 ---
@@ -36,9 +36,12 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ | Date        | getFullDate | |
 | ✔️ |             | moment      | |
 | ✔️ | Entity      | setParams   | |
+| ⚠️ |             | all         | |
 | ⚠️ | Request     | get         | |
 | ⚠️ |             | post        | |
-| ⚠️ |             | all         | |
+| ❌ |             | put        | |
+| ❌ |             | patch        | |
+| ❌ |             | delete        | |
 | ✔️ | Response    | setCode     | |
 | ✔️ |             | setStatus   | |
 | ✔️ |             | setMessage   | |
@@ -61,19 +64,19 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | getOption | |
 | ✔️ | Number      | random | |
 | ✔️ |             | currency | |
-| ⚠️ | Repository  | all | |
-| ⚠️ |             | get | |
-| ⚠️ |             | create | |
-| ⚠️ |             | first | |
-| ⚠️ |             | update | |
-| ⚠️ |             | delete | |
-| ⚠️ |             | insert | |
-| ⚠️ |             | findByIdentifier | |
-| ⚠️ |             | generateQueryFromParams | |
-| ⚠️ |             | getTransactionFromParams | |
-| ⚠️ |             | registerStaticFunctions | |
-| ⚠️ |             | registerStaticFunction | |
-| ⚠️ |             | getMethodNames | |
+| ✔️ | Repository  | all | |
+| ✔️ |             | get | |
+| ✔️ |             | create | |
+| ✔️ |             | first | |
+| ✔️ |             | update | |
+| ✔️ |             | delete | |
+| ✔️ |             | insert | |
+| ✔️ |             | findByIdentifier | |
+| ✔️ |             | generateQueryFromParams | |
+| ✔️ |             | getTransactionFromParams | |
+| ✔️ |             | registerStaticFunctions | |
+| ✔️ |             | registerStaticFunction | |
+| ✔️ |             | getMethodNames | |
 | ✔️ | Protobuf    | encode | |
 | ✔️ |             | decode | |
 | ✔️ |             | verify | |
@@ -112,14 +115,14 @@ Test Coverages
 😋 Dependencies
 ---
 ```md
-1. ⚠️ Utility: moment, numeral, uuid, nodemon, lodash, body-parser, dotenv, protobufjs, slugify, html-entities, html-to-text
-2. ⚠️ ORM: sequelize, mysql2, mongoose
-3. ⚠️ Networking: axios
-4. ⚠️ Messaging: amqplib
-5. ❌ Security: bcryptjs, jsonwebtoken
-6. ❌ Logging: morgan, rotating-file-stream
-7. ❌ Testing: mocha, nyc, chai, chai-like, chai-things, supertest
-8. ❌ Framework: express, express-jwt, express-validator
+1. Utility: moment, numeral, uuid, nodemon, lodash, body-parser, dotenv, protobufjs, slugify, html-entities, html-to-text, express-jwt, express-validator
+2. ORM: sequelize, mysql2, mongoose
+3. Networking: axios
+4. Messaging: amqplib
+5. Security: bcryptjs, jsonwebtoken
+6. Logging: morgan, rotating-file-stream
+7. Testing: mocha, nyc, chai, chai-like, chai-things, supertest
+8. Framework: express
 ```
 
 🤩 Contributor
