@@ -2,6 +2,7 @@
 const chai = require('chai'), expect = chai.expect;
 chai.use(require('chai-like'));
 chai.use(require('chai-things'));
+chai.use(require('chai-as-promised'));
 
 const { sql: connection } = require('../../../utility/database');
 const SqlModel = require('../../../models/sql-model');

@@ -36,12 +36,12 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ | Date        | getFullDate | |
 | ✔️ |             | moment      | |
 | ✔️ | Entity      | setParams   | |
-| ⚠️ |             | all         | |
-| ⚠️ | Request     | get         | |
-| ⚠️ |             | post        | |
-| ❌ |             | put        | |
-| ❌ |             | patch        | |
-| ❌ |             | delete        | |
+| ✔️ | Request     | get         | |
+| ✔️ |             | post        | |
+| ✔️ |             | put        | |
+| ✔️ |             | patch        | |
+| ✔️ |             | delete        | |
+| ✔️ |             | multiple         | |
 | ✔️ | Response    | setCode     | |
 | ✔️ |             | setStatus   | |
 | ✔️ |             | setMessage   | |
