@@ -34,7 +34,7 @@ In NodeJS
 Complete documentations are available [here](https://github.com/gurisa/arjuna/tree/master/docs)
 
 
-| Status | Facade      | Method      | Description |
+| Status | Facade   | Method      | Description |
 | --- | ------      | ------      | ------ |
 | ✔️ | Date        | getFullDate | get current date (Format: YYYY-MM-DD HH:mm:ss |
 | ✔️ |             | getOnlyDate | get current date (Format: YYYY-MM-DD |
@@ -96,6 +96,24 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ | Config      | set | Set object data by a unique key into file |
 | ✔️ |             | get | get object data by a unique key from a file |
 | ✔️ |             | all | get all object data from file |
+| ⚠️ | Html        | encode | |
+| ⚠️ |             | decode | |
+| ⚠️ |             | toText | |
+| ❌ | Middleware  | validation | |
+| ❌ |             | logger | |
+| ❌ | Event       | publish | |
+| ❌ |             | subscribe | |
+| ❌ |             | enqueue | |
+| ❌ |             | dequeue | |
+| ❌ | Command     | execute | |
+| ❌ | Operation   | run | |
+| ❌ | Factory     | create | |
+| ❌ | Builder     | build | |
+| ❌ | Provider    | register | |
+| ❌ | Controller  | handle | |
+| ❌ | ViewModel   | toObject | |
+| ❌ |             | toJson | |
+| ❌ | Service     | call | |
 ---
 
 ✔️ Test & Coverages
