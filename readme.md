@@ -50,19 +50,20 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ⚠️ |             | resetCounter | |
 | ⚠️ |             | flushCurrentDb | |
 | <td colspan="3"> **Log Package** |
-| ✔️ | [Log](https://github.com/gurisa/arjuna/tree/master/.docs/log.md) | report | |
+| ✔️ | Log | report | supported: slack |
 | ✔️ |             | consoleReport    | |
 | ✔️ |             | localReport      | |
-| ✔️ |             | onlineReport     | supported: slack |
+| ✔️ |             | onlineReport     | |
+| ❌ |             | setConfig     | |
 | <td colspan="3"> **Manipulator Package** |
-| ✔️ | [Config](https://github.com/gurisa/arjuna/tree/master/.docs/config.md) | set | Set object data by a unique key into file |
+| ✔️ | Config | set | Set object data by a unique key into file |
 | ✔️ |             | get | get object data by a unique key from a file |
 | ✔️ |             | all | get all object data from file |
 | ✔️ | [Date](https://github.com/gurisa/arjuna/tree/master/.docs/date.md) | getFullDate | get date (Format: YYYY-MM-DD HH:mm:ss, Default: Current Date) |
 | ✔️ |             | getOnlyDate | get date (Format: YYYY-MM-DD, Default: Current Date) |
-| ❓ |             | difference  |  |
 | ✔️ |             | moment      | return moment instance |
-| ✔️ | [Html](https://github.com/gurisa/arjuna/tree/master/.docs/text.md) | encode | encode html tag into html entity |
+| ❓ |             | difference  |  |
+| ✔️ | Html | encode | encode html tag into html entity |
 | ✔️ |             | decode | decode html entity into html tag |
 | ✔️ |             | toText | convert html tag into plain text |
 | ✔️ | [Number](https://github.com/gurisa/arjuna/tree/master/.docs/number.md) | random | |
@@ -79,13 +80,13 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ⚠️ |             | subscribe | |
 | ⚠️ |             | enqueue | |
 | ⚠️ |             | dequeue | |
-| ✔️ | [Request](https://github.com/gurisa/arjuna/tree/master/.docs/http.md) | get         | perform http get request |
+| ✔️ | [Request](https://github.com/gurisa/arjuna/tree/master/.docs/request.md) | get         | perform http get request |
 | ✔️ |             | post        | perform http post request |
 | ✔️ |             | put         | perform http put request  |
 | ✔️ |             | patch       | perform http patch request  |
 | ✔️ |             | delete      | perform http delete request  |
 | ✔️ |             | multiple    | perform multiple http request  |
-| ✔️ | [Response](https://github.com/gurisa/arjuna/tree/master/.docs/http.md) | setCode     | |
+| ✔️ | Response | setCode     | |
 | ✔️ |             | setStatus   | |
 | ✔️ |             | setMessage  | |
 | ✔️ |             | setData     | |
@@ -125,12 +126,13 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | createSchema | |
 | <td colspan="3"> **Structure Package** |
 | ✔️ | [Entity](https://github.com/gurisa/arjuna/tree/master/.docs/entity.md) | setParams   | set entity property from an object |
-| ✔️ | [SqlModel](https://github.com/gurisa/arjuna/tree/master/.docs/model.md) | instance         | |
+| ✔️ | [SqlModel](https://github.com/gurisa/arjuna/tree/master/.docs/sql-model.md) | instance         | |
 | ✔️ |             | registerDefaultStaticFunctions | |
 | ✔️ |             | registerStaticFunctions | |
 | ✔️ |             | createSqlModel | |
 | ✔️ |             | getOption | |
-| ✔️ | ViewModel   | toObject | |
+| ✔️ | ViewModel   | setParams | |
+| ✔️ |             | toObject | |
 | ✔️ |             | toJson | |
 | <td colspan="3"> *Unavailable packages - coming soon* |
 | ❌ | Builder     | build | |

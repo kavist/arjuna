@@ -13,9 +13,9 @@ const Log = require('./log/log');
 
 const Config = require('./manipulator/config');
 const Date = require('./manipulator/date');
+const Html = require('./manipulator/html');
 const Number = require('./manipulator/number');
 const Text = require('./manipulator/text');
-const Html = require('./manipulator/html');
 
 const Event = require('./network/event');
 const EventClient = require('./network/event-client');
@@ -23,6 +23,9 @@ const EventClientRabbit = require('./network/event-client-rabbit');
 const Request = require('./network/request');
 const Response = require('./network/response');
 
+const Command = require('./pattern/Command');
+const Factory = require('./pattern/Factory');
+const Operation = require('./pattern/Operation');
 const Provider = require('./pattern/provider');
 const Repository = require('./pattern/repository');
 
@@ -30,6 +33,7 @@ const Protobuf = require('./serialization/protobuf');
 
 const Entity = require('./structure/entity');
 const SqlModel = require('./structure/sql-model');
+const ViewModel = require('./structure/view-model');
 
 module.exports = {
   Cache: Cache,
@@ -40,9 +44,9 @@ module.exports = {
 
   Config: Config,
   Date: Date,
+  Html: Html,
   Number: Number,
   Text: Text,
-  Html: Html,
 
   Event: Event,
   EventClient: EventClient,
@@ -50,11 +54,15 @@ module.exports = {
   Request: Request,
   Response: Response,
 
+  Command: Command,
+  Factory: Factory,
+  Operation: Operation,
   Provider: Provider,
   Repository: Repository,
 
   Protobuf: Protobuf,
 
-  Entity: Entity,  
-  SqlModel: SqlModel
+  Entity: Entity,
+  SqlModel: SqlModel,
+  ViewModel: ViewModel
 }

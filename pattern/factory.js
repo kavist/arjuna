@@ -1,17 +1,17 @@
 
-class Provider
+class Factory
 {
 
   constructor()
   {
-    if (this.constructor === Provider) {
+    if (this.constructor === Factory) {
       throw new Error("Cannot construct abstract instances directly");
     }
-    if (this.register === Provider.prototype.register) {
-      throw new Error("Must override register method");
+    if (this.create === Factory.prototype.create) {
+      throw new Error("Must override create method");
     }
   }
 
 }
 
-module.exports = Provider;
+module.exports = Factory;
