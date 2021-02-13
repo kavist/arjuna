@@ -1,14 +1,14 @@
 {
   "name": "arjuna",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "nodejs boilerplate & utility",
   "main": "app.js",
   "scripts": {
     "dev": "node node_modules/nodemon/bin/nodemon.js",
-    "test": "nyc mocha -r dotenv/config dotenv_config_path=./.env.test ./tests/**/*.test.js --reporter spec --recursive --exit --inspect=0.0.0.0:9229 --timeout 12000",
-    "test-minimal": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./tests/**/*.test.js",
-    "test-unit": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./tests/unit/**/*.test.js",
-    "test-integration": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./tests/integration/**/*.test.js"
+    "test": "nyc mocha -r dotenv/config dotenv_config_path=./.env.test ./.tests/**/*.test.js --reporter spec --recursive --exit --inspect=0.0.0.0:9229 --timeout 10000",
+    "test-minimal": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./.tests/**/*.test.js --timeout 10000",
+    "test-unit": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./.tests/unit/**/*.test.js --timeout 10000",
+    "test-integration": "mocha --watch -r dotenv/config dotenv_config_path=./.env.test ./.tests/integration/**/*.test.js --timeout 10000"
   },
   "repository": {
     "type": "git",
@@ -76,7 +76,8 @@
     "rotating-file-stream": "^2.1.4",
     "sequelize": "^6.5.0",
     "slugify": "^1.4.6",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "redis": "^3.0.2"
   },
   "devDependencies": {
     "chai": "^4.3.0",

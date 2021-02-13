@@ -5,33 +5,64 @@ require('dotenv').config({
   path: path.join(__dirname, '.env') 
 });
 
-const Config = require('./config/config');
-const Date = require('./date/date');
-const Entity = require('./entities/entity');
-const Request = require('./http/request');
-const Response = require('./http/response');
-const Log = require('./log/log');
-const SqlModel = require('./models/sql-model');
-const Number = require('./number/number');
-const Repository = require('./repositories/repository');
-const Protobuf = require('./serialization/protobuf');
-const Text = require('./text/text');
+const Datastore = require('./datastore/datastore');
+const DatastoreClient = require('./datastore/datastore-client');
+const Redis = require('./datastore/redis');
+const Config = require('./datastore/config');
 
-const App = {
-  Config: Config,
-  Date: Date,
-  Entity: Entity,
-  Request: Request,
-  Response: Response,
-  Log: Log,
-  SqlModel: SqlModel,
-  Number: Number,
-  Repository: Repository,
-  Protobuf: Protobuf,
-  Text: Text,
-};
+const Log = require('./log/log');
+
+const Date = require('./manipulator/date');
+const Html = require('./manipulator/html');
+const Number = require('./manipulator/number');
+const Text = require('./manipulator/text');
+
+const Event = require('./network/event');
+const EventClient = require('./network/event-client');
+const EventClientRabbit = require('./network/event-client-rabbit');
+const Request = require('./network/request');
+const Response = require('./network/response');
+
+const Command = require('./pattern/Command');
+const Factory = require('./pattern/Factory');
+const Operation = require('./pattern/Operation');
+const Provider = require('./pattern/provider');
+const Repository = require('./pattern/repository');
+
+const Protobuf = require('./serialization/protobuf');
+
+const Entity = require('./structure/entity');
+const SqlModel = require('./structure/sql-model');
+const ViewModel = require('./structure/view-model');
 
 module.exports = {
-  App: App,
-  ...App
-};
+  Datastore: Datastore,
+  DatastoreClient: DatastoreClient,
+  Redis: Redis,
+  Config: Config,
+
+  Log: Log,
+
+  Date: Date,
+  Html: Html,
+  Number: Number,
+  Text: Text,
+
+  Event: Event,
+  EventClient: EventClient,
+  EventClientRabbit: EventClientRabbit,
+  Request: Request,
+  Response: Response,
+
+  Command: Command,
+  Factory: Factory,
+  Operation: Operation,
+  Provider: Provider,
+  Repository: Repository,
+
+  Protobuf: Protobuf,
+
+  Entity: Entity,
+  SqlModel: SqlModel,
+  ViewModel: ViewModel
+}

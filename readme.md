@@ -19,11 +19,7 @@ In NodeJS
 ```js
 
   /** file: app.js **/ 
-  const { App } = require('arjuna'); //compact version
-
-  const randomText = App.Text.random(30); //anifjaokpxb7589ewsmgiodkapnmkvc
-
-  const { Text } = require('arjuna'); //lightweight version
+  const { Text } = require('arjuna');
   const randomText2 = Text.random(30); //ifjaok89ewsmapxbgiodkap75nnmkvc
 
 ```
@@ -33,46 +29,84 @@ In NodeJS
 
 Complete documentations are available [here](https://github.com/gurisa/arjuna/tree/master/docs)
 
+**Legends:**
 
-| Status | Facade      | Method      | Description |
+- ✔️ Available with test
+- ⚠️ Available without test (Use with your own risk 😆)
+- ❌ Unavailable yet
+- ❓ Ideation from folks
+
+---
+
+| Status | Facade   | Method      | Description |
 | --- | ------      | ------      | ------ |
-| ✔️ | Date        | getFullDate | get current date (Format: YYYY-MM-DD HH:mm:ss |
-| ✔️ |             | getOnlyDate | get current date (Format: YYYY-MM-DD |
+| <td colspan="3"> **Datastore Package** |
+| ✔️ | Redis       | get | supported: redis |
+| ✔️ |             | set | |
+| ✔️ |             | del | |
+| ✔️ |             | expire | |
+| ✔️ |             | increment | |
+| ✔️ |             | decrement | |
+| ✔️ |             | resetCounter | |
+| ✔️ |             | flushCurrentDb | |
+| ✔️ | Config      | set | Set object data by a unique key into file |
+| ✔️ |             | get | get object data by a unique key from a file |
+| ✔️ |             | all | get all object data from file |
+| <td colspan="3"> **Log Package** |
+| ✔️ | Log | report | supported: slack |
+| ✔️ |             | consoleReport    | |
+| ✔️ |             | localReport      | |
+| ✔️ |             | onlineReport     | |
+| ❓ |             | setConfig     | |
+| <td colspan="3"> **Manipulator Package** |
+| ✔️ | [Date](https://github.com/gurisa/arjuna/tree/master/.docs/date.md) | getFullDate | get date (Format: YYYY-MM-DD HH:mm:ss, Default: Current Date) |
+| ✔️ |             | getOnlyDate | get date (Format: YYYY-MM-DD, Default: Current Date) |
 | ✔️ |             | moment      | return moment instance |
-| ✔️ | Entity      | setParams   | set entity property from an object |
-| ✔️ | Request     | get         | perform http get request |
-| ✔️ |             | post        | perform http post request |
-| ✔️ |             | put        | perform http put request  |
-| ✔️ |             | patch        | perform http patch request  |
-| ✔️ |             | delete        | perform http delete request  |
-| ✔️ |             | multiple         | perform multiple http request  |
-| ✔️ | Response    | setCode     | |
-| ✔️ |             | setStatus   | |
-| ✔️ |             | setMessage   | |
-| ✔️ |             | setData   | |
-| ✔️ |             | setError   | |
-| ✔️ |             | toObject   | |
-| ✔️ |             | toJson   | |
-| ✔️ |             | success   | |
-| ✔️ |             | error   | |
-| ✔️ |             | invalid   | |
-| ✔️ |             | forbidden   | |
-| ✔️ |             | notFound   | |
-| ✔️ |             | unauthenticate   | |
-| ✔️ |             | badGateway   | |
-| ✔️ |             | requestTimeout   | |
-| ✔️ | Log         | report | |
-| ✔️ |             | consoleReport | |
-| ✔️ |             | localReport | |
-| ✔️ |             | onlineReport | |
-| ✔️ | SqlModel    | instance | |
-| ✔️ |             | registerDefaultStaticFunctions | |
-| ✔️ |             | registerStaticFunctions | |
-| ✔️ |             | createSqlModel | |
-| ✔️ |             | getOption | |
-| ✔️ | Number      | random | |
+| ✔️ |             | wait | |
+| ✔️ | Html | encode | encode html tag into html entity |
+| ✔️ |             | decode | decode html entity into html tag |
+| ✔️ |             | toText | convert html tag into plain text |
+| ✔️ | [Number](https://github.com/gurisa/arjuna/tree/master/.docs/number.md) | random | |
 | ✔️ |             | currency | |
-| ✔️ | Repository  | all | |
+| ✔️ | [Text](https://github.com/gurisa/arjuna/tree/master/.docs/text.md) | random | |
+| ✔️ |             | isValidYoutubeUrl | |
+| ✔️ |             | getYoutubeVideoId | |
+| ✔️ |             | slugify | |
+| ✔️ |             | uuid | |
+| ✔️ |             | isValidUuid | |
+| ✔️ |             | getUuidVersion | |
+| <td colspan="3"> **Network Package** |
+| ✔️ | Event       | publish | supported: rabbitmq |
+| ✔️ |             | subscribe | |
+| ✔️ |             | enqueue | |
+| ✔️ |             | dequeue | |
+| ✔️ | [Request](https://github.com/gurisa/arjuna/tree/master/.docs/request.md) | get         | perform http get request |
+| ✔️ |             | post        | perform http post request |
+| ✔️ |             | put         | perform http put request  |
+| ✔️ |             | patch       | perform http patch request  |
+| ✔️ |             | delete      | perform http delete request  |
+| ✔️ |             | multiple    | perform multiple http request  |
+| ✔️ | Response | setCode     | |
+| ✔️ |             | setStatus   | |
+| ✔️ |             | setMessage  | |
+| ✔️ |             | setData     | |
+| ✔️ |             | setError    | |
+| ✔️ |             | toObject    | |
+| ✔️ |             | toJson      | |
+| ✔️ |             | success     | |
+| ✔️ |             | error       | |
+| ✔️ |             | invalid     | |
+| ✔️ |             | forbidden   | |
+| ✔️ |             | notFound    | |
+| ✔️ |             | unauthenticate   | |
+| ✔️ |             | badGateway       | |
+| ✔️ |             | requestTimeout   | |
+| <td colspan="3"> **Pattern Package** |
+| ✔️ | Command     | execute | |
+| ✔️ | Factory     | create | |
+| ✔️ | Operation   | run | |
+| ✔️ | Provider    | register | |
+| ✔️ | [Repository](https://github.com/gurisa/arjuna/tree/master/.docs/repository.md) | all | |
 | ✔️ |             | get | |
 | ✔️ |             | create | |
 | ✔️ |             | first | |
@@ -85,17 +119,30 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | registerStaticFunctions | |
 | ✔️ |             | registerStaticFunction | |
 | ✔️ |             | getMethodNames | |
-| ✔️ | Protobuf    | encode | |
+| <td colspan="3"> **Serialization Package** |
+| ✔️ | [Protobuf](https://github.com/gurisa/arjuna/tree/master/.docs/serialization.md) | encode | |
 | ✔️ |             | decode | |
 | ✔️ |             | verify | |
 | ✔️ |             | createSchema | |
-| ✔️ | Text        | random | |
-| ✔️ |             | isValidYoutubeUrl | |
-| ✔️ |             | getYoutubeVideoId | |
-| ✔️ |             | slugify | |
-| ✔️ | Config      | set | Set object data by a unique key into file |
-| ✔️ |             | get | get object data by a unique key from a file |
-| ✔️ |             | all | get all object data from file |
+| <td colspan="3"> **Structure Package** |
+| ✔️ | [Entity](https://github.com/gurisa/arjuna/tree/master/.docs/entity.md) | setParams   | set entity property from an object |
+| ✔️ | [SqlModel](https://github.com/gurisa/arjuna/tree/master/.docs/sql-model.md) | instance         | |
+| ✔️ |             | registerDefaultStaticFunctions | |
+| ✔️ |             | registerStaticFunctions | |
+| ✔️ |             | createSqlModel | |
+| ✔️ |             | getOption | |
+| ✔️ | ViewModel   | setParams | |
+| ✔️ |             | toObject | |
+| ✔️ |             | toJson | |
+| <td colspan="3"> *Unavailable packages - coming soon, maybe?* |
+| ❌ | Controller  | constructor | supported: express |
+| ❌ | Middleware  | validation | supported: express |
+| ❌ |             | logger | |
+| ❌ |             | monitoring | supported: prometheus |
+| ❌ | Builder     | build | |
+| ❌ |             | toObject | |
+| ❌ |             | toJson | |
+| ❌ | Service     | call | |
 ---
 
 ✔️ Test & Coverages
@@ -108,6 +155,16 @@ Running test without coverage + watchers
 Running test with coverage
 ```md
   npm run test
+```
+
+Running unit test
+```md
+  npm run test-unit
+```
+
+Running integration test (make sure you setup .env.test, check .env.example for more info)
+```md
+  npm run test-integration
 ```
 
 Test Coverages

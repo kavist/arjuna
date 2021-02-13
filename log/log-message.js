@@ -1,5 +1,5 @@
 
-const DateUtil = require('../date/date');
+const DateUtil = require('../manipulator/date');
 
 class LogMessage
 {
