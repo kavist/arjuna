@@ -41,10 +41,10 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | Status | Facade   | Method      | Description |
 | --- | ------      | ------      | ------ |
 | <td colspan="3"> **Cache Package** |
-| ⚠️ | Cache       | get | supported: redis |
-| ⚠️ |             | set | |
-| ⚠️ |             | del | |
-| ⚠️ |             | expire | |
+| ✔️ | Cache       | get | supported: redis |
+| ✔️ |             | set | |
+| ✔️ |             | del | |
+| ✔️ |             | expire | |
 | ⚠️ |             | increment | |
 | ⚠️ |             | decrement | |
 | ⚠️ |             | resetCounter | |
@@ -54,7 +54,7 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | consoleReport    | |
 | ✔️ |             | localReport      | |
 | ✔️ |             | onlineReport     | |
-| ❌ |             | setConfig     | |
+| ❓ |             | setConfig     | |
 | <td colspan="3"> **Manipulator Package** |
 | ✔️ | Config | set | Set object data by a unique key into file |
 | ✔️ |             | get | get object data by a unique key from a file |
@@ -63,6 +63,7 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | getOnlyDate | get date (Format: YYYY-MM-DD, Default: Current Date) |
 | ✔️ |             | moment      | return moment instance |
 | ❓ |             | difference  |  |
+| ⚠️ |             | wait | |
 | ✔️ | Html | encode | encode html tag into html entity |
 | ✔️ |             | decode | decode html entity into html tag |
 | ✔️ |             | toText | convert html tag into plain text |
@@ -76,10 +77,10 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | isValidUuid | |
 | ✔️ |             | getUuidVersion | |
 | <td colspan="3"> **Network Package** |
-| ⚠️ | Event       | publish | supported: rabbitmq |
-| ⚠️ |             | subscribe | |
-| ⚠️ |             | enqueue | |
-| ⚠️ |             | dequeue | |
+| ✔️ | Event       | publish | supported: rabbitmq |
+| ✔️ |             | subscribe | |
+| ✔️ |             | enqueue | |
+| ✔️ |             | dequeue | |
 | ✔️ | [Request](https://github.com/gurisa/arjuna/tree/master/.docs/request.md) | get         | perform http get request |
 | ✔️ |             | post        | perform http post request |
 | ✔️ |             | put         | perform http put request  |

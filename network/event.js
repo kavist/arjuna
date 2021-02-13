@@ -6,17 +6,18 @@ class Event
 {
 
   static async publish(params)
-  {
-    if (!params || !params.client || !params.exchange_name || !params.data) {
+  {    
+    if (!params || !params.client || !params.exchange_name) {
       throw new Error("Invalid params");
-    }
+    }    
     if (!(params.client instanceof EventClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.exchange_name !== "string") {
       throw new Error("Invalid params");
-    }
-    if (typeof params.data !== "object") {
+    }    
+    if (params.data !== undefined && 
+      typeof params.data !== "object") {
       throw new Error("Invalid params");
     }
 
@@ -26,6 +27,7 @@ class Event
     await params.client.publish(params);
 
     console.info(` [*] FINISH PUBLISHING ${params.exchange_name} EXCHANGE\n`);
+
   }
 
   static async subscribe(params)
@@ -53,13 +55,17 @@ class Event
 
   static async enqueue(params)
   {
-    if (!params || !params.connection || !params.queue_name || !params.data) {
+    if (!params || !params.client || !params.queue_name) {
+      throw new Error("Invalid params");
+    }
+    if (!(params.client instanceof EventClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.queue_name !== "string") {
       throw new Error("Invalid params");
     }
-    if (typeof params.data !== "object") {
+    if (params.data !== undefined && 
+      typeof params.data !== "object") {
       throw new Error("Invalid params");
     }
 
@@ -73,7 +79,10 @@ class Event
 
   static async dequeue(params)
   {
-    if (!params || !params.connection || !params.queue_name || !params.callback) {
+    if (!params || !params.client || !params.queue_name || !params.callback) {
+      throw new Error("Invalid params");
+    }
+    if (!(params.client instanceof EventClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.queue_name !== "string") {

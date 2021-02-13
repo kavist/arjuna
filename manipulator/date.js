@@ -19,6 +19,16 @@ class DateUtil
     return moment(date);
   }
 
+  static wait(duration)
+	{
+		if (typeof duration !== "number") {
+			throw new Error("Invalid duration");
+		}
+		return new Promise((resolve) => {
+			setTimeout(resolve, duration)
+		});
+	}
+
 }
 
 module.exports = DateUtil;

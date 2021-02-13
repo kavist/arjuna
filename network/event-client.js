@@ -1,4 +1,6 @@
 
+const Protobuf = require('../serialization/protobuf');
+
 class EventClient
 {
 
@@ -19,6 +21,40 @@ class EventClient
     if (this.dequeue === EventClient.prototype.dequeue) {
       throw new Error("Must override dequeue method");
     }
+  }
+
+  /**
+   * @return Buffer
+   */
+  static async getBufferData(params)
+  {
+    let bufferData = null;
+    if (params.proto && 
+      params.proto.name && 
+      params.proto.package) {
+      bufferData = await Protobuf.encode({
+        data: params.data,
+        name: params.proto.name,
+        package: params.proto.package
+      });
+    }
+    else {
+      bufferData = EventClient.getNormalBuffer(params);
+    }
+    return bufferData;
+  }
+
+  /**
+   * @return Buffer
+   */
+  static getNormalBuffer(params)
+  {
+    let data = (params && params.data) ? params.data : null;
+    if (!["string", "Buffer", "ArrayBuffer", "Array"]
+      .includes(typeof data)) {
+      data = JSON.stringify(data);
+    }
+    return Buffer.from(data);
   }
 
 }

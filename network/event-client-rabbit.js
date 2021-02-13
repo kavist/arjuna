@@ -1,6 +1,5 @@
 
 const Text = require('../manipulator/text');
-const Protobuf = require('../serialization/protobuf');
 const Log = require('../log/log');
 
 const EventClient = require('./event-client');
@@ -8,9 +7,19 @@ const EventClient = require('./event-client');
 class EventClientRabbit extends EventClient
 {
 
-  static async publish(params)
+  constructor(params)
   {
-    if (!params || !params.connection || !params.exchange_name) {
+    super();
+    if (params) {
+      if (params.connection) {
+        this.connection = params.connection;
+      }
+    }
+  }
+
+  async publish(params)
+  {
+    if (!params || !params.exchange_name) {
       throw new Error("Invalid params");
     }
     if (typeof params.exchange_name !== "string") {
@@ -20,13 +29,19 @@ class EventClientRabbit extends EventClient
       throw new Error("Invalid params");
     }
 
-    params.connection.then(channel => {
+    if (!this.connection && !params.connection) {
+      throw new Error("Connection not available");
+    }
+    const connection = this.connection || params.connection;
+
+    const bufferData = await EventClient.getBufferData(params);
+    connection.then(channel => {
 
       channel.assertExchange(params.exchange_name, 'fanout', {
         durable: false
       }).then(() => { return null; }).catch((err) => Log.report(err));
 
-      channel.publish(params.exchange_name, '', await Event.getBufferData(params), {
+      channel.publish(params.exchange_name, '', bufferData, {
         persistent: true,
         messageId: Text.uuid('v4')
       });
@@ -35,9 +50,9 @@ class EventClientRabbit extends EventClient
     }).catch(err => Log.report(err));    
   }
 
-  static async subscribe(params)
+  async subscribe(params)
   {
-    if (!params || !params.connection || !params.exchange_name || !params.callback) {
+    if (!params || !params.exchange_name || !params.callback) {
       throw new Error("Invalid params");
     }
     if (typeof params.exchange_name !== "string") {
@@ -47,7 +62,12 @@ class EventClientRabbit extends EventClient
       throw new Error("Invalid params");
     }
 
-    params.connection.then(channel => {
+    if (!this.connection && !params.connection) {
+      throw new Error("Connection not available");
+    }
+    const connection = this.connection || params.connection;
+
+    connection.then(channel => {
       channel.assertExchange(params.exchange_name, 'fanout', {
         durable: false
       }).then(() => { return null }).catch((err) => Log.report(err));
@@ -68,9 +88,9 @@ class EventClientRabbit extends EventClient
     }).catch((err) => Log.report(err));    
   }
 
-  static async enqueue(params)
+  async enqueue(params)
   {
-    if (!params || !params.connection || !params.queue_name) {
+    if (!params || !params.queue_name) {
       throw new Error("Invalid params");
     }
     if (typeof params.queue_name !== "string") {
@@ -80,10 +100,16 @@ class EventClientRabbit extends EventClient
       throw new Error("Invalid params");
     }
 
-    params.connection.then(channel => {
+    if (!this.connection && !params.connection) {
+      throw new Error("Connection not available");
+    }
+    const connection = this.connection || params.connection;
+
+    const bufferData = await EventClient.getBufferData(params);
+    connection.then(channel => {
       channel.assertQueue(params.queue_name, { durable: true }).then(ok => {
 
-        channel.sendToQueue(params.queue_name, await Event.getBufferData(params), {
+        channel.sendToQueue(params.queue_name, bufferData, {
           persistent: true,
           messageId: Text.uuid('v4')
         });
@@ -95,9 +121,9 @@ class EventClientRabbit extends EventClient
     }).catch((err) => Log.report(err));
   }
 
-  static async dequeue(params)
+  async dequeue(params)
   {
-    if (!params || !params.connection || !params.queue_name || !params.callback) {
+    if (!params || !params.queue_name || !params.callback) {
       throw new Error("Invalid params");
     }
     if (typeof params.queue_name !== "string") {
@@ -107,7 +133,12 @@ class EventClientRabbit extends EventClient
       throw new Error("Invalid params");
     }
 
-    params.connection.then(channel => {
+    if (!this.connection && !params.connection) {
+      throw new Error("Connection not available");
+    }
+    const connection = this.connection || params.connection;
+
+    connection.then(channel => {
 
       channel.assertQueue(params.queue_name, { durable: true })
       .then(ok => {
@@ -119,22 +150,6 @@ class EventClientRabbit extends EventClient
 
       return null
     }).catch((err) => Log.report(err));
-  }
-
-  static async getBufferData(params)
-  {
-    let bufferData = null
-    if (params.proto && params.proto.name && params.proto.package && params.data) {
-      bufferData = await Protobuf.encode({
-        data: params.data,
-        name: params.proto.name,
-        package: params.proto.package
-      });      
-    }
-    else {
-      bufferData = Buffer.from(params.data || null);
-    }
-    return bufferData;
   }
 
 }

@@ -28,5 +28,8 @@ module.exports = {
   },
   logSlack: {
     webhook_url: process.env.LOG_SLACK_MAIN_WEBHOOK_URL
+  },
+  dsRedis: {
+    connection: process.env.REDIS_MAIN_CONNECTION
   }
 };

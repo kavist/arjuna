@@ -2,7 +2,9 @@
 const { Sequelize } = require("sequelize");
 const mongoose = require('mongoose');
 
-const { dbSql, dbDocument } = require('./config');
+const RedisClientFactory = require('../.utility/factory/redis/RedisClientFactory');
+
+const { dbSql, dbDocument, dsRedis } = require('./config');
 
 const logger = (message) => {
   console.log("[QUERY_LOG] \n" + message);
@@ -45,6 +47,9 @@ const connections = {
     useFindAndModify: false,
     useCreateIndex: true,
     retryWrites: false
+  }),
+  redis: RedisClientFactory.createClient({
+    connection: dsRedis.connection
   }),
 };
 
