@@ -40,18 +40,52 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 
 | Status | Facade   | Method      | Description |
 | --- | ------      | ------      | ------ |
-| ✔️ | [Date](https://github.com/gurisa/arjuna/tree/master/docs/date.md) | getFullDate | get date (Format: YYYY-MM-DD HH:mm:ss, Default: Current Date) |
+| <td colspan="3"> **Cache Package** |
+| ⚠️ | Cache       | get | supported: redis |
+| ⚠️ |             | set | |
+| ⚠️ |             | del | |
+| ⚠️ |             | expire | |
+| ⚠️ |             | increment | |
+| ⚠️ |             | decrement | |
+| ⚠️ |             | resetCounter | |
+| ⚠️ |             | flushCurrentDb | |
+| <td colspan="3"> **Log Package** |
+| ✔️ | [Log](https://github.com/gurisa/arjuna/tree/master/.docs/log.md) | report | |
+| ✔️ |             | consoleReport    | |
+| ✔️ |             | localReport      | |
+| ✔️ |             | onlineReport     | supported: slack |
+| <td colspan="3"> **Manipulator Package** |
+| ✔️ | [Config](https://github.com/gurisa/arjuna/tree/master/.docs/config.md) | set | Set object data by a unique key into file |
+| ✔️ |             | get | get object data by a unique key from a file |
+| ✔️ |             | all | get all object data from file |
+| ✔️ | [Date](https://github.com/gurisa/arjuna/tree/master/.docs/date.md) | getFullDate | get date (Format: YYYY-MM-DD HH:mm:ss, Default: Current Date) |
 | ✔️ |             | getOnlyDate | get date (Format: YYYY-MM-DD, Default: Current Date) |
 | ❓ |             | difference  |  |
 | ✔️ |             | moment      | return moment instance |
-| ✔️ | [Entity](https://github.com/gurisa/arjuna/tree/master/docs/entity.md) | setParams   | set entity property from an object |
-| ✔️ | [Request](https://github.com/gurisa/arjuna/tree/master/docs/http.md) | get         | perform http get request |
+| ✔️ | [Html](https://github.com/gurisa/arjuna/tree/master/.docs/text.md) | encode | encode html tag into html entity |
+| ✔️ |             | decode | decode html entity into html tag |
+| ✔️ |             | toText | convert html tag into plain text |
+| ✔️ | [Number](https://github.com/gurisa/arjuna/tree/master/.docs/number.md) | random | |
+| ✔️ |             | currency | |
+| ✔️ | [Text](https://github.com/gurisa/arjuna/tree/master/.docs/text.md) | random | |
+| ✔️ |             | isValidYoutubeUrl | |
+| ✔️ |             | getYoutubeVideoId | |
+| ✔️ |             | slugify | |
+| ✔️ |             | uuid | |
+| ✔️ |             | isValidUuid | |
+| ✔️ |             | getUuidVersion | |
+| <td colspan="3"> **Network Package** |
+| ⚠️ | Event       | publish | supported: rabbitmq |
+| ⚠️ |             | subscribe | |
+| ⚠️ |             | enqueue | |
+| ⚠️ |             | dequeue | |
+| ✔️ | [Request](https://github.com/gurisa/arjuna/tree/master/.docs/http.md) | get         | perform http get request |
 | ✔️ |             | post        | perform http post request |
 | ✔️ |             | put         | perform http put request  |
 | ✔️ |             | patch       | perform http patch request  |
 | ✔️ |             | delete      | perform http delete request  |
 | ✔️ |             | multiple    | perform multiple http request  |
-| ✔️ | [Response](https://github.com/gurisa/arjuna/tree/master/docs/http.md) | setCode     | |
+| ✔️ | [Response](https://github.com/gurisa/arjuna/tree/master/.docs/http.md) | setCode     | |
 | ✔️ |             | setStatus   | |
 | ✔️ |             | setMessage  | |
 | ✔️ |             | setData     | |
@@ -66,18 +100,12 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | unauthenticate   | |
 | ✔️ |             | badGateway       | |
 | ✔️ |             | requestTimeout   | |
-| ✔️ | [Log](https://github.com/gurisa/arjuna/tree/master/docs/log.md) | report | |
-| ✔️ |             | consoleReport    | |
-| ✔️ |             | localReport      | |
-| ✔️ |             | onlineReport     | supported: slack |
-| ✔️ | [SqlModel](https://github.com/gurisa/arjuna/tree/master/docs/model.md) | instance         | |
-| ✔️ |             | registerDefaultStaticFunctions | |
-| ✔️ |             | registerStaticFunctions | |
-| ✔️ |             | createSqlModel | |
-| ✔️ |             | getOption | |
-| ✔️ | [Number](https://github.com/gurisa/arjuna/tree/master/docs/number.md) | random | |
-| ✔️ |             | currency | |
-| ✔️ | [Repository](https://github.com/gurisa/arjuna/tree/master/docs/repository.md) | all | |
+| <td colspan="3"> **Pattern Package** |
+| ✔️ | Command     | execute | |
+| ✔️ | Factory     | create | |
+| ✔️ | Operation   | run | |
+| ✔️ | Provider    | register | |
+| ✔️ | [Repository](https://github.com/gurisa/arjuna/tree/master/.docs/repository.md) | all | |
 | ✔️ |             | get | |
 | ✔️ |             | create | |
 | ✔️ |             | first | |
@@ -90,46 +118,24 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | registerStaticFunctions | |
 | ✔️ |             | registerStaticFunction | |
 | ✔️ |             | getMethodNames | |
-| ✔️ | [Protobuf](https://github.com/gurisa/arjuna/tree/master/docs/serialization.md) | encode | |
+| <td colspan="3"> **Serialization Package** |
+| ✔️ | [Protobuf](https://github.com/gurisa/arjuna/tree/master/.docs/serialization.md) | encode | |
 | ✔️ |             | decode | |
 | ✔️ |             | verify | |
 | ✔️ |             | createSchema | |
-| ✔️ | [Text](https://github.com/gurisa/arjuna/tree/master/docs/text.md) | random | |
-| ✔️ |             | isValidYoutubeUrl | |
-| ✔️ |             | getYoutubeVideoId | |
-| ✔️ |             | slugify | |
-| ✔️ |             | uuid | |
-| ✔️ |             | isValidUuid | |
-| ✔️ |             | getUuidVersion | |
-| ✔️ | [Html](https://github.com/gurisa/arjuna/tree/master/docs/text.md) | encode | encode html tag into html entity |
-| ✔️ |             | decode | decode html entity into html tag |
-| ✔️ |             | toText | convert html tag into plain text |
-| ✔️ | [Config](https://github.com/gurisa/arjuna/tree/master/docs/config.md) | set | Set object data by a unique key into file |
-| ✔️ |             | get | get object data by a unique key from a file |
-| ✔️ |             | all | get all object data from file |
-| ⚠️ | Event       | publish | supported: rabbitmq |
-| ⚠️ |             | subscribe | |
-| ⚠️ |             | enqueue | |
-| ⚠️ |             | dequeue | |
-| ⚠️ | Cache       | get | supported: redis |
-| ⚠️ |             | set | |
-| ⚠️ |             | del | |
-| ⚠️ |             | expire | |
-| ⚠️ |             | increment | |
-| ⚠️ |             | decrement | |
-| ⚠️ |             | resetCounter | |
-| ⚠️ |             | flushCurrentDb | |
-
-| ❌ | Provider    | register | |
-| ❌ | ViewModel   | toObject | |
-| ❌ |             | toJson | |
-| ❌ | Factory     | create | |
+| <td colspan="3"> **Structure Package** |
+| ✔️ | [Entity](https://github.com/gurisa/arjuna/tree/master/.docs/entity.md) | setParams   | set entity property from an object |
+| ✔️ | [SqlModel](https://github.com/gurisa/arjuna/tree/master/.docs/model.md) | instance         | |
+| ✔️ |             | registerDefaultStaticFunctions | |
+| ✔️ |             | registerStaticFunctions | |
+| ✔️ |             | createSqlModel | |
+| ✔️ |             | getOption | |
+| ✔️ | ViewModel   | toObject | |
+| ✔️ |             | toJson | |
+| <td colspan="3"> *Unavailable packages - coming soon* |
 | ❌ | Builder     | build | |
 | ❌ |             | toObject | |
 | ❌ |             | toJson | |
-| ❌ | Command     | execute | |
-| ❌ | Operation   | run | |
-
 | ❌ | Service     | call | |
 | ❌ | Controller  | constructor | supported: express |
 | ❌ | Middleware  | validation | supported: express |
