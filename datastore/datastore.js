@@ -1,7 +1,7 @@
 
-const CacheClient = require('./cache-client');
+const DatastoreClient = require('./datastore-client');
 
-class Cache
+class Datastore
 {
 
   static async get(params)
@@ -9,7 +9,7 @@ class Cache
     if (!params || !params.client || !params.key) {
       throw new Error("Invalid params");
     }
-    if (!(params.client instanceof CacheClient)) {
+    if (!(params.client instanceof DatastoreClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.key !== "string") {
@@ -24,7 +24,7 @@ class Cache
       !params.key || params.value === undefined) {
       throw new Error("Invalid params");
     }
-    if (!(params.client instanceof CacheClient)) {
+    if (!(params.client instanceof DatastoreClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.key !== "string") {
@@ -40,7 +40,7 @@ class Cache
     if (!params || !params.client || !params.key) {
       throw new Error("Invalid params");
     }
-    if (!(params.client instanceof CacheClient)) {
+    if (!(params.client instanceof DatastoreClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.key !== "string") {
@@ -55,7 +55,7 @@ class Cache
       !params.key || !params.time) {
       throw new Error("Invalid params");
     }
-    if (!(params.client instanceof CacheClient)) {
+    if (!(params.client instanceof DatastoreClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.key !== "string") {
@@ -75,7 +75,7 @@ class Cache
     if (!params || !params.client || !params.key) {
       throw new Error("Invalid params");
     }
-    if (!(params.client instanceof CacheClient)) {
+    if (!(params.client instanceof DatastoreClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.key !== "string") {
@@ -94,7 +94,7 @@ class Cache
     if (!params || !params.client || !params.key) {
       throw new Error("Invalid params");
     }
-    if (!(params.client instanceof CacheClient)) {
+    if (!(params.client instanceof DatastoreClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.key !== "string") {
@@ -113,7 +113,7 @@ class Cache
     if (!params || !params.client || !params.key) {
       throw new Error("Invalid params");
     }
-    if (!(params.client instanceof CacheClient)) {
+    if (!(params.client instanceof DatastoreClient)) {
       throw new Error("Invalid params");
     }
     if (typeof params.key !== "string") {
@@ -128,7 +128,7 @@ class Cache
     if (!params || !params.client) {
       throw new Error("Invalid params");
     }
-    if (!(params.client instanceof CacheClient)) {
+    if (!(params.client instanceof DatastoreClient)) {
       throw new Error("Invalid params");
     }
     await params.client.flushCurrentDb();
@@ -137,4 +137,4 @@ class Cache
   
 }
 
-module.exports = Cache;
+module.exports = Datastore;

@@ -2,9 +2,9 @@
 
 | Doc | Facade   | Reference |
 | --- | ------      | ------ |
-| ❌ | ✔️ Cache |  |
-| ❌ | ✔️ Log |  |
+| ❌ | ✔️ Redis |  |
 | ❌ | ✔️ Config |  |
+| ❌ | ✔️ Log |  |
 | ✔️ | ✔️ Date | [Link](https://github.com/gurisa/arjuna/blob/master/.docs/date.md) |
 | ❌ | ✔️ Html |  |
 | ✔️ | ✔️ Number | [Link](https://github.com/gurisa/arjuna/blob/master/.docs/number.md) |

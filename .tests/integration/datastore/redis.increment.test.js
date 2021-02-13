@@ -6,12 +6,12 @@ chai.use(require('chai-as-promised'));
 
 const { dsRedis } = require('../../../.utility/config');
 const RedisClientFactory = require('../../../.utility/factory/redis/RedisClientFactory');
-const Cache = require('../../../cache/cache');
+const Datastore = require('../../../datastore/datastore');
 
-describe('cache increment method', function() {
+describe('datastore increment method', function() {
   
-  let cache = null;
-  let cacheClient = null;
+  let datastore = null;
+  let datastoreClient = null;
   let connection = null;
 
   before(function() {
@@ -23,9 +23,9 @@ describe('cache increment method', function() {
   });
 
   beforeEach(function() {
-    cache = Cache;
+    datastore = Datastore;
     connection = dsRedis.connection;
-    cacheClient = RedisClientFactory.create({
+    datastoreClient = RedisClientFactory.create({
       connection: connection
     });
   });
@@ -37,14 +37,14 @@ describe('cache increment method', function() {
   it('should fail when params is not passed', async function() {
     await expect(
 
-      cache.increment()
+      datastore.increment()
 
     ).to.be.rejectedWith(Error);
   });
   it('should fail when client is not valid', async function() {
     await expect(
 
-      cache.increment({
+      datastore.increment({
         client: 'invalid_client'
       })
 
@@ -53,7 +53,7 @@ describe('cache increment method', function() {
   it('should fail when key is not valid', async function() {
     await expect(
 
-      cache.increment({
+      datastore.increment({
         key: {}
       })
 
@@ -62,7 +62,7 @@ describe('cache increment method', function() {
   it('should fail when amount is not valid', async function() {
     await expect(
 
-      cache.increment({
+      datastore.increment({
         amount: {}
       })
 
@@ -70,19 +70,19 @@ describe('cache increment method', function() {
   });
 
   it('should success with incremented key value', async function() {
-    await cache.set({ 
-      client: cacheClient,
+    await datastore.set({ 
+      client: datastoreClient,
       key: 'increment_key',
       value: 1
     });
     
-    await cache.increment({ 
-      client: cacheClient,
+    await datastore.increment({ 
+      client: datastoreClient,
       key: 'increment_key',
     });
 
-    const result = await cache.get({ 
-      client: cacheClient,
+    const result = await datastore.get({ 
+      client: datastoreClient,
       key: 'increment_key',
     });
 
@@ -90,20 +90,20 @@ describe('cache increment method', function() {
   });
 
   it('should success with custom incremented key value', async function() {
-    await cache.set({ 
-      client: cacheClient,
+    await datastore.set({ 
+      client: datastoreClient,
       key: 'custom_increment_key',
       value: 1
     });
     
-    await cache.increment({ 
-      client: cacheClient,
+    await datastore.increment({ 
+      client: datastoreClient,
       key: 'custom_increment_key',
       amount: 5
     });
 
-    const result = await cache.get({ 
-      client: cacheClient,
+    const result = await datastore.get({ 
+      client: datastoreClient,
       key: 'custom_increment_key',
     });
 
@@ -111,20 +111,20 @@ describe('cache increment method', function() {
   });
 
   it('should success with negative incremented key value', async function() {
-    await cache.set({ 
-      client: cacheClient,
+    await datastore.set({ 
+      client: datastoreClient,
       key: 'custom_increment_key',
       value: 1
     });
     
-    await cache.increment({ 
-      client: cacheClient,
+    await datastore.increment({ 
+      client: datastoreClient,
       key: 'custom_increment_key',
       amount: -5
     });
 
-    const result = await cache.get({ 
-      client: cacheClient,
+    const result = await datastore.get({ 
+      client: datastoreClient,
       key: 'custom_increment_key',
     });
 

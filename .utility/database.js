@@ -48,7 +48,7 @@ const connections = {
     useCreateIndex: true,
     retryWrites: false
   }),
-  redis: RedisClientFactory.createClient({
+  redis: RedisClientFactory.create({
     connection: dsRedis.connection
   }),
 };

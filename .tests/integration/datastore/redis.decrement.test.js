@@ -6,12 +6,12 @@ chai.use(require('chai-as-promised'));
 
 const { dsRedis } = require('../../../.utility/config');
 const RedisClientFactory = require('../../../.utility/factory/redis/RedisClientFactory');
-const Cache = require('../../../cache/cache');
+const Datastore = require('../../../datastore/datastore');
 
-describe('cache decrement method', function() {
+describe('datastore decrement method', function() {
   
-  let cache = null;
-  let cacheClient = null;
+  let datastore = null;
+  let datastoreClient = null;
   let connection = null;
 
   before(function() {
@@ -23,9 +23,9 @@ describe('cache decrement method', function() {
   });
 
   beforeEach(function() {
-    cache = Cache;
+    datastore = Datastore;
     connection = dsRedis.connection;
-    cacheClient = RedisClientFactory.create({
+    datastoreClient = RedisClientFactory.create({
       connection: connection
     });
   });
@@ -37,14 +37,14 @@ describe('cache decrement method', function() {
   it('should fail when params is not passed', async function() {
     await expect(
 
-      cache.decrement()
+      datastore.decrement()
 
     ).to.be.rejectedWith(Error);
   });
   it('should fail when client is not valid', async function() {
     await expect(
 
-      cache.decrement({
+      datastore.decrement({
         client: 'invalid_client'
       })
 
@@ -53,7 +53,7 @@ describe('cache decrement method', function() {
   it('should fail when key is not valid', async function() {
     await expect(
 
-      cache.decrement({
+      datastore.decrement({
         key: {}
       })
 
@@ -62,7 +62,7 @@ describe('cache decrement method', function() {
   it('should fail when amount is not valid', async function() {
     await expect(
 
-      cache.decrement({
+      datastore.decrement({
         amount: {}
       })
 
@@ -70,19 +70,19 @@ describe('cache decrement method', function() {
   });
 
   it('should success with decremented key value', async function() {
-    await cache.set({ 
-      client: cacheClient,
+    await datastore.set({ 
+      client: datastoreClient,
       key: 'decrement_key',
       value: 1
     });
     
-    await cache.decrement({ 
-      client: cacheClient,
+    await datastore.decrement({ 
+      client: datastoreClient,
       key: 'decrement_key',
     });
 
-    const result = await cache.get({ 
-      client: cacheClient,
+    const result = await datastore.get({ 
+      client: datastoreClient,
       key: 'decrement_key',
     });
 
@@ -90,20 +90,20 @@ describe('cache decrement method', function() {
   });
 
   it('should success with custom decremented key value', async function() {
-    await cache.set({ 
-      client: cacheClient,
+    await datastore.set({ 
+      client: datastoreClient,
       key: 'custom_decrement_key',
       value: 5
     });
     
-    await cache.decrement({ 
-      client: cacheClient,
+    await datastore.decrement({ 
+      client: datastoreClient,
       key: 'custom_decrement_key',
       amount: 3
     });
 
-    const result = await cache.get({ 
-      client: cacheClient,
+    const result = await datastore.get({ 
+      client: datastoreClient,
       key: 'custom_decrement_key',
     });
 
@@ -111,20 +111,20 @@ describe('cache decrement method', function() {
   });
 
   it('should success with negative decremented key value', async function() {
-    await cache.set({ 
-      client: cacheClient,
+    await datastore.set({ 
+      client: datastoreClient,
       key: 'custom_decrement_key',
       value: 5
     });
     
-    await cache.decrement({ 
-      client: cacheClient,
+    await datastore.decrement({ 
+      client: datastoreClient,
       key: 'custom_decrement_key',
       amount: -5
     });
 
-    const result = await cache.get({ 
-      client: cacheClient,
+    const result = await datastore.get({ 
+      client: datastoreClient,
       key: 'custom_decrement_key',
     });
 

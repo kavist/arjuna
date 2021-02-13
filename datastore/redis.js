@@ -3,9 +3,9 @@ const { promisify } = require("util");
 
 const Log = require('../log/log');
 
-const CacheClient = require('./cache-client');
+const DatastoreClient = require('./datastore-client');
 
-class CacheClientRedis extends CacheClient
+class Redis extends DatastoreClient
 {
 
   constructor(params)
@@ -124,7 +124,7 @@ class CacheClientRedis extends CacheClient
   
 }
 
-module.exports = CacheClientRedis;
+module.exports = Redis;
 
 const counterCallback = function(err, value) {
   if (err) {

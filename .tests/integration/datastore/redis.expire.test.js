@@ -6,12 +6,13 @@ chai.use(require('chai-as-promised'));
 
 const { dsRedis } = require('../../../.utility/config');
 const RedisClientFactory = require('../../../.utility/factory/redis/RedisClientFactory');
-const Cache = require('../../../cache/cache');
+const Datastore = require('../../../datastore/datastore');
+const Date = require('../../../manipulator/date');
 
-describe('cache set method', function() {
+describe('datastore expire method', function() {
   
-  let cache = null;
-  let cacheClient = null;
+  let datastore = null;
+  let datastoreClient = null;
   let connection = null;
 
   before(function() {
@@ -23,9 +24,9 @@ describe('cache set method', function() {
   });
 
   beforeEach(function() {
-    cache = Cache;
+    datastore = Datastore;
     connection = dsRedis.connection;
-    cacheClient = RedisClientFactory.create({
+    datastoreClient = RedisClientFactory.create({
       connection: connection
     });
   });
@@ -37,14 +38,14 @@ describe('cache set method', function() {
   it('should fail when params is not passed', async function() {
     await expect(
 
-      cache.set()
+      datastore.expire()
 
     ).to.be.rejectedWith(Error);
   });
   it('should fail when client is not valid', async function() {
     await expect(
 
-      cache.set({
+      datastore.expire({
         client: 'invalid_client'
       })
 
@@ -53,43 +54,48 @@ describe('cache set method', function() {
   it('should fail when key is not valid', async function() {
     await expect(
 
-      cache.set({
+      datastore.expire({
         key: {}
       })
 
     ).to.be.rejectedWith(Error);
   });
-  it('should fail when value is not valid', async function() {
+  it('should fail when time is not valid', async function() {
     await expect(
 
-      cache.set({
-        value: undefined
-      })
-
-    ).to.be.rejectedWith(Error);
-  });
-  it('should fail when value is null', async function() {
-    await expect(
-
-      cache.set({
-        client: cacheClient,
-        key: 'key_name',
-        value: null
+      datastore.expire({
+        time: {}
       })
 
     ).to.be.rejectedWith(Error);
   });
 
-  it('should success when value is passed', async function() {
-    const result = await cache.set({ 
-      client: cacheClient,
-      key: 'key_name',
+  it('should success with expired key status', async function() {
+    await datastore.set({ 
+      client: datastoreClient,
+      key: 'expiring_key',
       value: JSON.stringify({
         fake: 'data'
       })
     });
+    
+    await datastore.expire({ 
+      client: datastoreClient,
+      key: 'expiring_key',
+      time: 1
+    });
 
-    expect(result).to.be.an('string').to.be.equal('OK');
+    await Date.wait(2000);
+
+    const result = await datastore.get({ 
+      client: datastoreClient,
+      key: 'expiring_key',
+    });
+
+    const object = JSON.parse(result);
+
+    expect(result).to.be.an('null');
+    expect(object).to.be.equal(null);
   });
 
 });

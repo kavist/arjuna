@@ -6,12 +6,12 @@ chai.use(require('chai-as-promised'));
 
 const { dsRedis } = require('../../../.utility/config');
 const RedisClientFactory = require('../../../.utility/factory/redis/RedisClientFactory');
-const Cache = require('../../../cache/cache');
+const Datastore = require('../../../datastore/datastore');
 
-describe('cache resetCounter method', function() {
+describe('datastore del method', function() {
   
-  let cache = null;
-  let cacheClient = null;
+  let datastore = null;
+  let datastoreClient = null;
   let connection = null;
 
   before(function() {
@@ -23,9 +23,9 @@ describe('cache resetCounter method', function() {
   });
 
   beforeEach(function() {
-    cache = Cache;
+    datastore = Datastore;
     connection = dsRedis.connection;
-    cacheClient = RedisClientFactory.create({
+    datastoreClient = RedisClientFactory.create({
       connection: connection
     });
   });
@@ -37,14 +37,14 @@ describe('cache resetCounter method', function() {
   it('should fail when params is not passed', async function() {
     await expect(
 
-      cache.resetCounter()
+      datastore.del()
 
     ).to.be.rejectedWith(Error);
   });
   it('should fail when client is not valid', async function() {
     await expect(
 
-      cache.resetCounter({
+      datastore.del({
         client: 'invalid_client'
       })
 
@@ -53,31 +53,36 @@ describe('cache resetCounter method', function() {
   it('should fail when key is not valid', async function() {
     await expect(
 
-      cache.resetCounter({
+      datastore.del({
         key: {}
       })
 
     ).to.be.rejectedWith(Error);
   });
 
-  it('should success with reseted counter within key', async function() {
-    await cache.set({ 
-      client: cacheClient,
-      key: 'resetCounter_key',
-      value: 1
+  it('should success with deleted key status', async function() {
+    await datastore.set({ 
+      client: datastoreClient,
+      key: 'key_name',
+      value: JSON.stringify({
+        fake: 'data'
+      })
     });
     
-    await cache.resetCounter({ 
-      client: cacheClient,
-      key: 'resetCounter_key',
+    await datastore.del({ 
+      client: datastoreClient,
+      key: 'key_name',
     });
 
-    const result = await cache.get({ 
-      client: cacheClient,
-      key: 'resetCounter_key',
+    const result = await datastore.get({ 
+      client: datastoreClient,
+      key: 'key_name',
     });
 
-    expect(result).to.be.an('string').to.be.equal('0');
+    const object = JSON.parse(result);
+
+    expect(result).to.be.an('null');
+    expect(object).to.be.equal(null);
   });
 
 });

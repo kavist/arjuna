@@ -6,12 +6,12 @@ chai.use(require('chai-as-promised'));
 
 const { dsRedis } = require('../../../.utility/config');
 const RedisClientFactory = require('../../../.utility/factory/redis/RedisClientFactory');
-const Cache = require('../../../cache/cache');
+const Datastore = require('../../../datastore/datastore');
 
-describe('cache del method', function() {
+describe('datastore get method', function() {
   
-  let cache = null;
-  let cacheClient = null;
+  let datastore = null;
+  let datastoreClient = null;
   let connection = null;
 
   before(function() {
@@ -23,9 +23,9 @@ describe('cache del method', function() {
   });
 
   beforeEach(function() {
-    cache = Cache;
+    datastore = Datastore;
     connection = dsRedis.connection;
-    cacheClient = RedisClientFactory.create({
+    datastoreClient = RedisClientFactory.create({
       connection: connection
     });
   });
@@ -37,14 +37,14 @@ describe('cache del method', function() {
   it('should fail when params is not passed', async function() {
     await expect(
 
-      cache.del()
+      datastore.get()
 
     ).to.be.rejectedWith(Error);
   });
   it('should fail when client is not valid', async function() {
     await expect(
 
-      cache.del({
+      datastore.get({
         client: 'invalid_client'
       })
 
@@ -53,36 +53,33 @@ describe('cache del method', function() {
   it('should fail when key is not valid', async function() {
     await expect(
 
-      cache.del({
+      datastore.get({
         key: {}
       })
 
     ).to.be.rejectedWith(Error);
   });
 
-  it('should success with deleted key status', async function() {
-    await cache.set({ 
-      client: cacheClient,
+  it('should success when key value available', async function() {
+    await datastore.set({ 
+      client: datastoreClient,
       key: 'key_name',
       value: JSON.stringify({
         fake: 'data'
       })
     });
-    
-    await cache.del({ 
-      client: cacheClient,
-      key: 'key_name',
-    });
 
-    const result = await cache.get({ 
-      client: cacheClient,
+    const result = await datastore.get({ 
+      client: datastoreClient,
       key: 'key_name',
     });
 
     const object = JSON.parse(result);
 
-    expect(result).to.be.an('null');
-    expect(object).to.be.equal(null);
+    expect(result).to.be.an('string');
+    expect(object).to.be.an('object');
+    expect(object.fake).to.be.an('string')
+      .to.be.equal('data');
   });
 
 });

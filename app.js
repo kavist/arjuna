@@ -5,13 +5,13 @@ require('dotenv').config({
   path: path.join(__dirname, '.env') 
 });
 
-const Cache = require('./cache/cache');
-const CacheClient = require('./cache/cache-client');
-const CacheClientRedis = require('./cache/cache-client-redis');
+const Datastore = require('./datastore/datastore');
+const DatastoreClient = require('./datastore/datastore-client');
+const Redis = require('./datastore/redis');
+const Config = require('./datastore/config');
 
 const Log = require('./log/log');
 
-const Config = require('./manipulator/config');
 const Date = require('./manipulator/date');
 const Html = require('./manipulator/html');
 const Number = require('./manipulator/number');
@@ -36,13 +36,13 @@ const SqlModel = require('./structure/sql-model');
 const ViewModel = require('./structure/view-model');
 
 module.exports = {
-  Cache: Cache,
-  CacheClient: CacheClient,
-  CacheClientRedis: CacheClientRedis,
+  Datastore: Datastore,
+  DatastoreClient: DatastoreClient,
+  Redis: Redis,
+  Config: Config,
 
   Log: Log,
 
-  Config: Config,
   Date: Date,
   Html: Html,
   Number: Number,

@@ -6,12 +6,12 @@ chai.use(require('chai-as-promised'));
 
 const { dsRedis } = require('../../../.utility/config');
 const RedisClientFactory = require('../../../.utility/factory/redis/RedisClientFactory');
-const Cache = require('../../../cache/cache');
+const Datastore = require('../../../datastore/datastore');
 
-describe('cache flushCurrentDb method', function() {
+describe('datastore flushCurrentDb method', function() {
   
-  let cache = null;
-  let cacheClient = null;
+  let datastore = null;
+  let datastoreClient = null;
   let connection = null;
 
   before(function() {
@@ -23,9 +23,9 @@ describe('cache flushCurrentDb method', function() {
   });
 
   beforeEach(function() {
-    cache = Cache;
+    datastore = Datastore;
     connection = dsRedis.connection;
-    cacheClient = RedisClientFactory.create({
+    datastoreClient = RedisClientFactory.create({
       connection: connection
     });
   });
@@ -37,14 +37,14 @@ describe('cache flushCurrentDb method', function() {
   it('should fail when params is not passed', async function() {
     await expect(
 
-      cache.flushCurrentDb()
+      datastore.flushCurrentDb()
 
     ).to.be.rejectedWith(Error);
   });
   it('should fail when client is not valid', async function() {
     await expect(
 
-      cache.flushCurrentDb({
+      datastore.flushCurrentDb({
         client: 'invalid_client'
       })
 
@@ -54,12 +54,12 @@ describe('cache flushCurrentDb method', function() {
 
   it('should success with reseted counter within key', async function() {
 
-    await cache.flushCurrentDb({ 
-      client: cacheClient,
+    await datastore.flushCurrentDb({ 
+      client: datastoreClient,
     });
 
-    const result = await cache.get({ 
-      client: cacheClient,
+    const result = await datastore.get({ 
+      client: datastoreClient,
       key: 'flushCurrentDb_key',
     });
 

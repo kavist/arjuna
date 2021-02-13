@@ -40,8 +40,8 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 
 | Status | Facade   | Method      | Description |
 | --- | ------      | ------      | ------ |
-| <td colspan="3"> **Cache Package** |
-| ✔️ | Cache       | get | supported: redis |
+| <td colspan="3"> **Datastore Package** |
+| ✔️ | Redis       | get | supported: redis |
 | ✔️ |             | set | |
 | ✔️ |             | del | |
 | ✔️ |             | expire | |
@@ -49,6 +49,9 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | decrement | |
 | ✔️ |             | resetCounter | |
 | ✔️ |             | flushCurrentDb | |
+| ✔️ | Config      | set | Set object data by a unique key into file |
+| ✔️ |             | get | get object data by a unique key from a file |
+| ✔️ |             | all | get all object data from file |
 | <td colspan="3"> **Log Package** |
 | ✔️ | Log | report | supported: slack |
 | ✔️ |             | consoleReport    | |
@@ -56,14 +59,10 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | onlineReport     | |
 | ❓ |             | setConfig     | |
 | <td colspan="3"> **Manipulator Package** |
-| ✔️ | Config | set | Set object data by a unique key into file |
-| ✔️ |             | get | get object data by a unique key from a file |
-| ✔️ |             | all | get all object data from file |
 | ✔️ | [Date](https://github.com/gurisa/arjuna/tree/master/.docs/date.md) | getFullDate | get date (Format: YYYY-MM-DD HH:mm:ss, Default: Current Date) |
 | ✔️ |             | getOnlyDate | get date (Format: YYYY-MM-DD, Default: Current Date) |
 | ✔️ |             | moment      | return moment instance |
-| ❓ |             | difference  |  |
-| ⚠️ |             | wait | |
+| ✔️ |             | wait | |
 | ✔️ | Html | encode | encode html tag into html entity |
 | ✔️ |             | decode | decode html entity into html tag |
 | ✔️ |             | toText | convert html tag into plain text |
@@ -135,15 +134,15 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ | ViewModel   | setParams | |
 | ✔️ |             | toObject | |
 | ✔️ |             | toJson | |
-| <td colspan="3"> *Unavailable packages - coming soon* |
-| ❌ | Builder     | build | |
-| ❌ |             | toObject | |
-| ❌ |             | toJson | |
-| ❌ | Service     | call | |
+| <td colspan="3"> *Unavailable packages - coming soon, maybe?* |
 | ❌ | Controller  | constructor | supported: express |
 | ❌ | Middleware  | validation | supported: express |
 | ❌ |             | logger | |
 | ❌ |             | monitoring | supported: prometheus |
+| ❌ | Builder     | build | |
+| ❌ |             | toObject | |
+| ❌ |             | toJson | |
+| ❌ | Service     | call | |
 ---
 
 ✔️ Test & Coverages
@@ -156,6 +155,16 @@ Running test without coverage + watchers
 Running test with coverage
 ```md
   npm run test
+```
+
+Running unit test
+```md
+  npm run test-unit
+```
+
+Running integration test (make sure you setup .env.test, check .env.example for more info)
+```md
+  npm run test-integration
 ```
 
 Test Coverages

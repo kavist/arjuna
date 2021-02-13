@@ -4,7 +4,7 @@ chai.use(require('chai-like'));
 chai.use(require('chai-things'));
 
 const path = require('path');
-const Config = require('../../../manipulator/config');
+const Config = require('../../../datastore/config');
 
 describe('config set method', function() {
   

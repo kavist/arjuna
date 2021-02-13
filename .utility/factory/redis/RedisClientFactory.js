@@ -1,7 +1,7 @@
 
 const redis = require('redis');
 
-const CacheClientRedis = require('../../../cache/cache-client-redis');
+const RedisClient = require('../../../datastore/redis');
 const Log = require('../../../log/log');
 
 let redisClient = null;
@@ -28,7 +28,7 @@ class RedisClientFactory
       Log.report(err);
     });
     
-    return new CacheClientRedis({
+    return new RedisClient({
       client: redisClient
     });
   }

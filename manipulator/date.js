@@ -24,6 +24,9 @@ class DateUtil
 		if (typeof duration !== "number") {
 			throw new Error("Invalid duration");
 		}
+    if (duration < 1) {
+      throw new Error("Invalid duration");
+    }
 		return new Promise((resolve) => {
 			setTimeout(resolve, duration)
 		});
