@@ -1,57 +1,57 @@
 
-// const chai = require('chai'), expect = chai.expect;
-// chai.use(require('chai-like'));
-// chai.use(require('chai-things'));
-// chai.use(require('chai-as-promised'));
+const chai = require('chai'), expect = chai.expect;
+chai.use(require('chai-like'));
+chai.use(require('chai-things'));
+chai.use(require('chai-as-promised'));
 
-// const Request = require('../../../network/request');
+const Request = require('../../../network/request');
 
-// describe('request patch method', function() {
+describe('request patch method', function() {
   
-//   let request = null;
+  let request = null;
 
-//   before(function() {
+  before(function() {
     
-//   });
+  });
 
-//   after(function() {
+  after(function() {
     
-//   });
+  });
 
-//   beforeEach(function() {
-//     request = new Request();
-//   });
+  beforeEach(function() {
+    request = new Request();
+  });
 
-//   afterEach(async function() {
+  afterEach(async function() {
     
-//   });
+  });
 
-//   it('should fail when params.url is not a string', async function() {
-//     await expect(
+  it('should fail when params.url is not a string', async function() {
+    await expect(
 
-//       request.patch({ url: 0 })
+      request.patch({ url: 0 })
 
-//     ).to.be.rejectedWith(Error);
-//   });
-//   it('should fail when params.data is empty', async function() {
-//     await expect(
+    ).to.be.rejectedWith(Error);
+  });
+  it('should fail when params.data is empty', async function() {
+    await expect(
 
-//       request.patch({ 
-//         url: 'https://google.com',
-//         data: null
-//       })
+      request.patch({ 
+        url: 'https://google.com',
+        data: null
+      })
 
-//     ).to.be.rejectedWith(Error);
-//   });
-//   it('should success when params.data is available', async function() {
+    ).to.be.rejectedWith(Error);
+  });
+  it('should success when params.data is available', async function() {
 
-//     await request.patch({ 
-//       url: 'https://jsonplaceholder.typicode.com/posts/1',
-//       data: {
-//         hello: 'google'
-//       }
-//     })
+    await request.patch({ 
+      url: 'https://jsonplaceholder.typicode.com/posts/1',
+      data: {
+        hello: 'google'
+      }
+    })
 
-//   });
+  });
   
-// });
+});

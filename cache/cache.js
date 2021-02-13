@@ -81,7 +81,11 @@ class Cache
     if (typeof params.key !== "string") {
       throw new Error("Invalid params");
     }
-    await params.client.increment(params.key);
+    if (params.amount !== undefined && 
+      typeof params.amount !== "number") {
+      throw new Error("Invalid params");
+    }
+    await params.client.increment(params.key, params.amount || 1);
     return this;
   }
 
@@ -96,7 +100,11 @@ class Cache
     if (typeof params.key !== "string") {
       throw new Error("Invalid params");
     }
-    await params.client.decrement(params.key);
+    if (params.amount !== undefined && 
+      typeof params.amount !== "number") {
+      throw new Error("Invalid params");
+    }
+    await params.client.decrement(params.key, params.amount || 1);
     return this;
   }
 

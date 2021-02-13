@@ -8,7 +8,7 @@ const { dsRedis } = require('../../../.utility/config');
 const RedisClientFactory = require('../../../.utility/factory/redis/RedisClientFactory');
 const Cache = require('../../../cache/cache');
 
-describe('cache get method', function() {
+describe('cache resetCounter method', function() {
   
   let cache = null;
   let cacheClient = null;
@@ -37,14 +37,14 @@ describe('cache get method', function() {
   it('should fail when params is not passed', async function() {
     await expect(
 
-      cache.get()
+      cache.resetCounter()
 
     ).to.be.rejectedWith(Error);
   });
   it('should fail when client is not valid', async function() {
     await expect(
 
-      cache.get({
+      cache.resetCounter({
         client: 'invalid_client'
       })
 
@@ -53,33 +53,31 @@ describe('cache get method', function() {
   it('should fail when key is not valid', async function() {
     await expect(
 
-      cache.get({
+      cache.resetCounter({
         key: {}
       })
 
     ).to.be.rejectedWith(Error);
   });
 
-  it('should success when key value available', async function() {
+  it('should success with reseted counter within key', async function() {
     await cache.set({ 
       client: cacheClient,
-      key: 'key_name',
-      value: JSON.stringify({
-        fake: 'data'
-      })
+      key: 'resetCounter_key',
+      value: 1
+    });
+    
+    await cache.resetCounter({ 
+      client: cacheClient,
+      key: 'resetCounter_key',
     });
 
     const result = await cache.get({ 
       client: cacheClient,
-      key: 'key_name',
+      key: 'resetCounter_key',
     });
 
-    const object = JSON.parse(result);
-
-    expect(result).to.be.an('string');
-    expect(object).to.be.an('object');
-    expect(object.fake).to.be.an('string')
-      .to.be.equal('data');
+    expect(result).to.be.an('string').to.be.equal('0');
   });
 
 });

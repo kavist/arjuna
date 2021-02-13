@@ -45,10 +45,10 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | set | |
 | ✔️ |             | del | |
 | ✔️ |             | expire | |
-| ⚠️ |             | increment | |
-| ⚠️ |             | decrement | |
-| ⚠️ |             | resetCounter | |
-| ⚠️ |             | flushCurrentDb | |
+| ✔️ |             | increment | |
+| ✔️ |             | decrement | |
+| ✔️ |             | resetCounter | |
+| ✔️ |             | flushCurrentDb | |
 | <td colspan="3"> **Log Package** |
 | ✔️ | Log | report | supported: slack |
 | ✔️ |             | consoleReport    | |

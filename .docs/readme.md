@@ -2,14 +2,14 @@
 
 | Doc | Facade   | Reference |
 | --- | ------      | ------ |
-| ❌ | ⚠️ Cache |  |
+| ❌ | ✔️ Cache |  |
 | ❌ | ✔️ Log |  |
 | ❌ | ✔️ Config |  |
 | ✔️ | ✔️ Date | [Link](https://github.com/gurisa/arjuna/blob/master/.docs/date.md) |
 | ❌ | ✔️ Html |  |
 | ✔️ | ✔️ Number | [Link](https://github.com/gurisa/arjuna/blob/master/.docs/number.md) |
 | ✔️ | ✔️ Text | [Link](https://github.com/gurisa/arjuna/blob/master/.docs/text.md) |
-| ❌ | ⚠️ Event |  |
+| ❌ | ✔️ Event |  |
 | ✔️ | ✔️ Request | [Link](https://github.com/gurisa/arjuna/blob/master/.docs/request.md) |
 | ❌ | ✔️ Response |  |
 | ❌ | ✔️ Command |  |

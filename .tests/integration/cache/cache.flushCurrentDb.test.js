@@ -8,7 +8,7 @@ const { dsRedis } = require('../../../.utility/config');
 const RedisClientFactory = require('../../../.utility/factory/redis/RedisClientFactory');
 const Cache = require('../../../cache/cache');
 
-describe('cache get method', function() {
+describe('cache flushCurrentDb method', function() {
   
   let cache = null;
   let cacheClient = null;
@@ -37,49 +37,33 @@ describe('cache get method', function() {
   it('should fail when params is not passed', async function() {
     await expect(
 
-      cache.get()
+      cache.flushCurrentDb()
 
     ).to.be.rejectedWith(Error);
   });
   it('should fail when client is not valid', async function() {
     await expect(
 
-      cache.get({
+      cache.flushCurrentDb({
         client: 'invalid_client'
       })
 
     ).to.be.rejectedWith(Error);
   });
-  it('should fail when key is not valid', async function() {
-    await expect(
+  
 
-      cache.get({
-        key: {}
-      })
+  it('should success with reseted counter within key', async function() {
 
-    ).to.be.rejectedWith(Error);
-  });
-
-  it('should success when key value available', async function() {
-    await cache.set({ 
+    await cache.flushCurrentDb({ 
       client: cacheClient,
-      key: 'key_name',
-      value: JSON.stringify({
-        fake: 'data'
-      })
     });
 
     const result = await cache.get({ 
       client: cacheClient,
-      key: 'key_name',
+      key: 'flushCurrentDb_key',
     });
 
-    const object = JSON.parse(result);
-
-    expect(result).to.be.an('string');
-    expect(object).to.be.an('object');
-    expect(object.fake).to.be.an('string')
-      .to.be.equal('data');
+    expect(result).to.be.an('null').to.be.equal(null);
   });
 
 });

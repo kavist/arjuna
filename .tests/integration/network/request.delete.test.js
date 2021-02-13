@@ -1,46 +1,46 @@
 
-// const chai = require('chai'), expect = chai.expect;
-// chai.use(require('chai-like'));
-// chai.use(require('chai-things'));
-// chai.use(require('chai-as-promised'));
+const chai = require('chai'), expect = chai.expect;
+chai.use(require('chai-like'));
+chai.use(require('chai-things'));
+chai.use(require('chai-as-promised'));
 
-// const Request = require('../../../network/request');
+const Request = require('../../../network/request');
 
-// describe('request delete method', function() {
+describe('request delete method', function() {
   
-//   let request = null;
+  let request = null;
 
-//   before(function() {
+  before(function() {
     
-//   });
+  });
 
-//   after(function() {
+  after(function() {
     
-//   });
+  });
 
-//   beforeEach(function() {
-//     request = new Request();
-//   });
+  beforeEach(function() {
+    request = new Request();
+  });
 
-//   afterEach(async function() {
+  afterEach(async function() {
     
-//   });
+  });
 
-//   it('should fail when params.url is not a string', async function() {
-//     await expect(
+  it('should fail when params.url is not a string', async function() {
+    await expect(
 
-//       request.delete({ url: 0 })
+      request.delete({ url: 0 })
 
-//     ).to.be.rejectedWith(Error);
-//   });
-//   it('should success when params.url is a string', async function() {
+    ).to.be.rejectedWith(Error);
+  });
+  it('should success when params.url is a string', async function() {
 
-//     const response = await request.delete({ 
-//       url: 'https://jsonplaceholder.typicode.com/posts/1' 
-//     });
+    const response = await request.delete({ 
+      url: 'https://jsonplaceholder.typicode.com/posts/1' 
+    });
 
-//     expect(response).to.be.an('object');
+    expect(response).to.be.an('object');
 
-//   });
+  });
   
-// });
+});

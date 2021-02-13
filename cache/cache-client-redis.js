@@ -1,5 +1,4 @@
 
-const { type } = require("os");
 const { promisify } = require("util");
 
 const Log = require('../log/log');
@@ -38,7 +37,8 @@ class CacheClientRedis extends CacheClient
     }    
     if (typeof value !== "string" && 
       typeof value !== "dates" && 
-      typeof value !== "buffers") {
+      typeof value !== "buffers" &&
+      typeof value !== "number") {
       throw new Error("Invalid params");
     }
     return await this.setAsync(key, value);
@@ -64,22 +64,42 @@ class CacheClientRedis extends CacheClient
     return await this.expireAsync(key, time);
   }
 
-  async increment(key)
+  async increment(key, amount = 1)
   {
     let counter = await this.get(key);
-    counter = counter || 0;
-    counter++;
+    if (!counter)  {
+      counter = 0;
+    }
+    counter = parseInt(counter);
+
+    if (typeof amount === "number") {
+      counter += amount;
+    }
+    else {
+      counter++;
+    }
+
     this.client.set(key, counter, counterCallback);
 
     console.info(` [*] Incrementing ${key} to: ${counter}`);
     return this;
   }
 
-  async decrement(key)
+  async decrement(key, amount = 1)
   {
     let counter = await this.get(key);
-    counter = counter || 0;
-    counter = counter > 0 ? counter - 1 : 0;
+    if (!counter)  {
+      counter = 0;
+    }
+    counter = parseInt(counter);
+    
+    if (typeof amount === "number") {
+      counter -= amount;
+    }
+    else {
+      counter--;
+    }
+
     this.client.set(key, counter, counterCallback);
 
     console.info(` [*] Decrementing ${key} to: ${counter}`);
