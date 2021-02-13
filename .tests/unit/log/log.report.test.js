@@ -50,7 +50,7 @@ describe('log report method', function() {
       messengers: [
         'local'
       ],
-      logDirectory: 'utility/storage'
+      logDirectory: '.utility/storage'
     });
   });
 
@@ -62,7 +62,7 @@ describe('log report method', function() {
       messengers: [
         'local'
       ],
-      logDirectory: 'utility/storage',
+      logDirectory: '.utility/storage',
     });
   }); 
 

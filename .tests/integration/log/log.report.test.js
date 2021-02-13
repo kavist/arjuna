@@ -39,7 +39,7 @@ describe('log report method', function() {
       messengers: [
         'local', 'online'
       ],
-      logDirectory: 'utility/storage',
+      logDirectory: '.utility/storage',
       endpoint: logSlack.webhook_url
     });
   });

@@ -48,7 +48,7 @@ describe('log localReport method', function() {
     expect(function() { 
       Log.localReport({
         data: 'should fail when no messengers logDirectory passed',
-        logDirectory: 'utility/storage'
+        logDirectory: '.utility/storage'
       });
     }).to.throw('Invalid params');
   });
@@ -59,7 +59,7 @@ describe('log localReport method', function() {
     });
     Log.localReport({
       data: message,
-      logDirectory: 'utility/storage'
+      logDirectory: '.utility/storage'
     });
   }); 
 
