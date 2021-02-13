@@ -4,8 +4,8 @@ chai.use(require('chai-like'));
 chai.use(require('chai-things'));
 
 const { sql: connection } = require('../../../utility/database');
-const SqlModel = require('../../../models/sql-model');
-const Repository = require('../../../repositories/repository');
+const SqlModel = require('../../../model/sql-model');
+const Repository = require('../../../repository/repository');
 
 describe('repository all method', function() {
   

@@ -3,7 +3,7 @@ const chai = require('chai'), expect = chai.expect;
 chai.use(require('chai-like'));
 chai.use(require('chai-things'));
 
-const Entity = require('../../../entities/entity');
+const Entity = require('../../../entity/entity');
 
 describe('entity instance', function() {
   

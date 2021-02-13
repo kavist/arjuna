@@ -3,7 +3,7 @@ const chai = require('chai'), expect = chai.expect;
 chai.use(require('chai-like'));
 chai.use(require('chai-things'));
 
-const SqlModel = require('../../../models/sql-model');
+const SqlModel = require('../../../model/sql-model');
 
 describe('sql-model getOption methods', function() {
   

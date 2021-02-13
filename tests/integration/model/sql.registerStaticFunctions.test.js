@@ -4,7 +4,7 @@ chai.use(require('chai-like'));
 chai.use(require('chai-things'));
 
 const { sql: connection } = require('../../../utility/database');
-const SqlModel = require('../../../models/sql-model');
+const SqlModel = require('../../../model/sql-model');
 
 describe('sql-model registerStaticFunctions methods', function() {
   

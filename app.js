@@ -5,21 +5,40 @@ require('dotenv').config({
   path: path.join(__dirname, '.env') 
 });
 
+const Cache = require('./cache/cache');
+const CacheClient = require('./cache/cache-client');
+const CacheClientRedis = require('./cache/cache-client-redis');
+
 const Config = require('./config/config');
 const Date = require('./date/date');
-const Entity = require('./entities/entity');
+
+const Event = require('./event/event');
+const EventClient = require('./event/event-client');
+const EventClientRabbit = require('./event/event-client-rabbit');
+
+const Entity = require('./entity/entity');
 const Request = require('./http/request');
 const Response = require('./http/response');
 const Log = require('./log/log');
-const SqlModel = require('./models/sql-model');
+const SqlModel = require('./model/sql-model');
 const Number = require('./number/number');
-const Repository = require('./repositories/repository');
+const Repository = require('./repository/repository');
 const Protobuf = require('./serialization/protobuf');
 const Text = require('./text/text');
+const Html = require('./text/html');
 
-const App = {
+module.exports = {
+  Cache: Cache,
+  CacheClient: CacheClient,
+  CacheClientRedis: CacheClientRedis,
+
   Config: Config,
   Date: Date,
+
+  Event: Event,
+  EventClient: EventClient,
+  EventClientRabbit: EventClientRabbit,
+
   Entity: Entity,
   Request: Request,
   Response: Response,
@@ -29,9 +48,5 @@ const App = {
   Repository: Repository,
   Protobuf: Protobuf,
   Text: Text,
-};
-
-module.exports = {
-  App: App,
-  ...App
-};
+  Html: Html
+}

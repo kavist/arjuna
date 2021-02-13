@@ -1,6 +1,6 @@
 
 const Entities = require('html-entities').XmlEntities;
-const { htmlToText } = require('html-to-text');
+const { fromString } = require('html-to-text');
 
 class Html 
 {
@@ -26,7 +26,7 @@ class Html
 		if (!html || typeof html !== "string") {
 			throw new Error('Invalid params');
 		}
-		return htmlToText(html);
+		return fromString(html);
 	}
 
 }

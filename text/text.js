@@ -1,4 +1,9 @@
 
+const { 
+	v1, v4, 
+	validate, 
+	version 
+} = require('uuid');
 const slugify = require('slugify');
 
 class Text 
@@ -54,6 +59,40 @@ class Text
 			strict: false,
 			locale: 'id'
 		});
+	}
+
+	static uuid(version = 'v4')
+	{
+		if (!version || typeof version !== "string") {
+			throw new Error('Invalid version');
+		}
+		if (!["v1", "v4"].includes(version)) {
+			throw new Error('Unsupported uuid version');
+		}
+		if (version === "v1") {
+			return v1();
+		}
+		else if (version === "v4") {
+			return v4();
+		}
+	}
+
+	/** @return boolean */
+	static isValidUuid(uuid)
+	{
+		if (!uuid || typeof uuid !== "string") {
+			throw new Error('Invalid uuid');
+		}
+		return validate(uuid);
+	}
+
+	/** @return integer */
+	static getUuidVersion(uuid)
+	{
+		if (!uuid || typeof uuid !== "string") {
+			throw new Error('Invalid uuid');
+		}
+		return version(uuid);
 	}
 
 }
