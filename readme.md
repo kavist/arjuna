@@ -119,6 +119,7 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | registerStaticFunctions | |
 | ✔️ |             | registerStaticFunction | |
 | ✔️ |             | getMethodNames | |
+| ❓ |             | last     | |
 | <td colspan="3"> **Serialization Package** |
 | ✔️ | [Protobuf](https://github.com/gurisa/arjuna/tree/master/.docs/serialization.md) | encode | |
 | ✔️ |             | decode | |
@@ -135,6 +136,7 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | toObject | |
 | ✔️ |             | toJson | |
 | <td colspan="3"> *Unavailable packages - coming soon, maybe?* |
+| ❌ | Queries     | get    | |
 | ❌ | Controller  | constructor | supported: express |
 | ❌ | Middleware  | validation | supported: express |
 | ❌ |             | logger | |
