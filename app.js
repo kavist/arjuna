@@ -23,9 +23,9 @@ const EventClientRabbit = require('./network/event-client-rabbit');
 const Request = require('./network/request');
 const Response = require('./network/response');
 
-const Command = require('./pattern/Command');
-const Factory = require('./pattern/Factory');
-const Operation = require('./pattern/Operation');
+const Command = require('./pattern/command');
+const Factory = require('./pattern/factory');
+const Operation = require('./pattern/operation');
 const Provider = require('./pattern/provider');
 const Repository = require('./pattern/repository');
 
