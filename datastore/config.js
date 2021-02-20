@@ -3,11 +3,11 @@ const { set: _set, get: _get } = require('lodash');
 const path = require('path');
 const fs = require('fs');
 
+const DEFAULT_CONFIG_FILE_NAME = 'config.json';
+const DEFAULT_CONFIG_FILE_DIR = 'storage';
+
 class Config
 {
-
-  static DEFAULT_CONFIG_FILE_NAME = 'config.json';
-  static DEFAULT_CONFIG_FILE_DIR = 'storage';
 
   static set(params)
   {
@@ -57,8 +57,8 @@ class Config
 
   static getSetting(params = null)
   {
-    let file = Config.DEFAULT_CONFIG_FILE_NAME;
-    let directory = Config.DEFAULT_CONFIG_FILE_DIR;
+    let file = DEFAULT_CONFIG_FILE_NAME;
+    let directory = DEFAULT_CONFIG_FILE_DIR;
 
     if (params) {
       if (typeof params.file === "string") {

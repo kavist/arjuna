@@ -75,6 +75,7 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | uuid | |
 | ✔️ |             | isValidUuid | |
 | ✔️ |             | getUuidVersion | |
+| ❓ |             | alphabets     | |
 | <td colspan="3"> **Network Package** |
 | ✔️ | Event       | publish | supported: rabbitmq |
 | ✔️ |             | subscribe | |
@@ -136,6 +137,8 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | toObject | |
 | ✔️ |             | toJson | |
 | <td colspan="3"> *Unavailable packages - coming soon, maybe?* |
+| ❌ | Object      | renameKey    | |
+| ❌ |             | renameKeys    | |
 | ❌ | Queries     | get    | |
 | ❌ | Controller  | constructor | supported: express |
 | ❌ | Middleware  | validation | supported: express |
