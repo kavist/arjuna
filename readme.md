@@ -146,7 +146,6 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ❌ | Object      | renameKey    | |
 | ❌ |             | renameKeys    | |
 | ❌ | Queries     | get    | |
-
 | ❌ | Controller  | constructor | supported: express req/res |
 | ❌ | Middleware  | validation | supported: express req/res |
 | ❌ |             | logger | |

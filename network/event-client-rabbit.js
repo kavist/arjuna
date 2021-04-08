@@ -45,7 +45,7 @@ class EventClientRabbit extends EventClient
     const bufferData = await EventClient.getBufferData(params);
     connection.then(channel => {
 
-      channel.assertExchange(params.exchange_name, params.exchange_type || 'fanout', {
+      channel.assertExchange(params.exchange_name, params.exchange_type || 'direct', {
         durable: false
       }).then(() => { return null; }).catch((err) => Log.report(err));
 
@@ -84,7 +84,7 @@ class EventClientRabbit extends EventClient
     const connection = this.connection || params.connection;
 
     connection.then(channel => {
-      channel.assertExchange(params.exchange_name, params.exchange_type || 'fanout', {
+      channel.assertExchange(params.exchange_name, params.exchange_type || 'direct', {
         durable: false
       }).then(() => { return null }).catch((err) => Log.report(err));
 
