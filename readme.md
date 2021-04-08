@@ -137,17 +137,23 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | toObject | |
 | ✔️ |             | toJson | |
 | <td colspan="3"> *Unavailable packages - coming soon, maybe?* |
+| ❌ | Security    | base64Encode | |
+| ❌ |             | base64Decode | |
+| ❌ |             | createRandomKey | |
+| ❌ |             | createRandomSecret | |
+| ❌ |             | encrypt | |
+| ❌ |             | decrypt | |
 | ❌ | Object      | renameKey    | |
 | ❌ |             | renameKeys    | |
 | ❌ | Queries     | get    | |
-| ❌ | Controller  | constructor | supported: express |
-| ❌ | Middleware  | validation | supported: express |
+
+| ❌ | Controller  | constructor | supported: express req/res |
+| ❌ | Middleware  | validation | supported: express req/res |
 | ❌ |             | logger | |
 | ❌ |             | monitoring | supported: prometheus |
 | ❌ | Builder     | build | |
 | ❌ |             | toObject | |
 | ❌ |             | toJson | |
-| ❌ | Service     | call | |
 ---
 
 ✔️ Test & Coverages
@@ -179,14 +185,13 @@ Test Coverages
 😋 Dependencies
 ---
 ```md
-1. Utility: moment, numeral, uuid, nodemon, lodash, body-parser, dotenv, protobufjs, slugify, html-entities, html-to-text, express-jwt, express-validator
+1. Utility: moment, numeral, uuid, nodemon, lodash, body-parser, dotenv, protobufjs, slugify, html-entities, html-to-text
 2. ORM: sequelize, mysql2, mongoose
 3. Networking: axios
 4. Messaging: amqplib
 5. Security: bcryptjs, jsonwebtoken
 6. Logging: morgan, rotating-file-stream
 7. Testing: mocha, nyc, chai, chai-like, chai-things, supertest
-8. Framework: express
 ```
 
 🤩 Contributor
@@ -197,7 +202,7 @@ Feel free to [contribute](https://github.com/gurisa/arjuna/pulls)
 
 💖 Support
 ---
-This is open source project feel free to contributes and supporting us through: [Idaman](https://idaman.id/arjuna)
+This is open source project feel free to contributes and supporting us through: [Idaman](https://idaman.id)
 
 
 📜 License

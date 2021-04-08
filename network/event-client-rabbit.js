@@ -28,6 +28,14 @@ class EventClientRabbit extends EventClient
     if (params.data !== undefined && typeof params.data !== "object") {
       throw new Error("Invalid params");
     }
+    if (params.exchange_type !== undefined && 
+      typeof params.exchange_type !== "string") {
+      throw new Error("Invalid params");
+    }
+    if (params.binding_key !== undefined && 
+      typeof params.binding_key !== "string") {
+      throw new Error("Invalid params");
+    }
 
     if (!this.connection && !params.connection) {
       throw new Error("Connection not available");
@@ -37,11 +45,11 @@ class EventClientRabbit extends EventClient
     const bufferData = await EventClient.getBufferData(params);
     connection.then(channel => {
 
-      channel.assertExchange(params.exchange_name, 'fanout', {
+      channel.assertExchange(params.exchange_name, params.exchange_type || 'fanout', {
         durable: false
       }).then(() => { return null; }).catch((err) => Log.report(err));
 
-      channel.publish(params.exchange_name, '', bufferData, {
+      channel.publish(params.exchange_name, params.binding_key || '', bufferData, {
         persistent: true,
         messageId: Text.uuid('v4')
       });
@@ -61,6 +69,14 @@ class EventClientRabbit extends EventClient
     if (typeof params.callback !== "function") {
       throw new Error("Invalid params");
     }
+    if (params.exchange_type !== undefined && 
+      typeof params.exchange_type !== "string") {
+      throw new Error("Invalid params");
+    }
+    if (params.binding_key !== undefined && 
+      typeof params.binding_key !== "string") {
+      throw new Error("Invalid params");
+    }
 
     if (!this.connection && !params.connection) {
       throw new Error("Connection not available");
@@ -68,14 +84,14 @@ class EventClientRabbit extends EventClient
     const connection = this.connection || params.connection;
 
     connection.then(channel => {
-      channel.assertExchange(params.exchange_name, 'fanout', {
+      channel.assertExchange(params.exchange_name, params.exchange_type || 'fanout', {
         durable: false
       }).then(() => { return null }).catch((err) => Log.report(err));
 
       channel.assertQueue('', { exclusive: true }).then((q) => {
         console.info(" [*] Waiting for messages in %s.", q.queue);
 
-        channel.bindQueue(q.queue, params.exchange_name, '')
+        channel.bindQueue(q.queue, params.exchange_name, params.binding_key || '')
           .then(() => { return null; }).catch((err) => Log.report(err));
 
         channel.consume(q.queue, params.callback, { noAck: true })
