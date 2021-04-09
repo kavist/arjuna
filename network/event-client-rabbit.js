@@ -92,7 +92,7 @@ class EventClientRabbit extends EventClient
         durable: false
       }).then(() => { return null }).catch((err) => Log.report(err));
 
-      channel.assertQueue('', { exclusive: true }).then((q) => {
+      channel.assertQueue(params.queue_name || '', { exclusive: true }).then((q) => {
         const queueName = params.queue_name || q.queue;
         console.info(" [*] Waiting for messages in %s.", queueName);
 
