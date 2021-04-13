@@ -1,6 +1,6 @@
 {
   "name": "arjuna",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "nodejs boilerplate & utility",
   "main": "app.js",
   "scripts": {

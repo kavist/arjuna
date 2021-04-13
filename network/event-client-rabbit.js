@@ -81,6 +81,10 @@ class EventClientRabbit extends EventClient
       typeof params.queue_name !== "string") {
       throw new Error("Invalid params");
     }
+    if (params.queue_option !== undefined && 
+      typeof params.queue_option !== "object") {
+      throw new Error("Invalid params");
+    }
 
     if (!this.connection && !params.connection) {
       throw new Error("Connection not available");
@@ -92,7 +96,7 @@ class EventClientRabbit extends EventClient
         durable: false
       }).then(() => { return null }).catch((err) => Log.report(err));
 
-      channel.assertQueue(params.queue_name || '', { exclusive: true }).then((q) => {
+      channel.assertQueue(params.queue_name || '', params.queue_option).then((q) => {
         const queueName = params.queue_name || q.queue;
         console.info(" [*] Waiting for messages in %s.", queueName);
 
