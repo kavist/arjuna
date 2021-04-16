@@ -25,11 +25,11 @@ class Protobuf
     }
 
     const schema = await Protobuf.createSchema(params);
-    const err = schema.verify(params.data);
+    const sanitizedData = sanitizeData(params.data);
+    const err = schema.verify(sanitizedData);
     if (err) {
       throw new Error(err);
     }
-    const sanitizedData = sanitizeData(params.data);
     const message = schema.create(sanitizedData);
     return schema.encode(message).finish();
   }
