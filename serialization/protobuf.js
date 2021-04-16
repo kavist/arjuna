@@ -29,7 +29,8 @@ class Protobuf
     if (err) {
       throw new Error(err);
     }
-    const message = schema.create(params.data);
+    const sanitizedData = sanitizeData(params.data);
+    const message = schema.create(sanitizedData);
     return schema.encode(message).finish();
   }
 
@@ -65,3 +66,24 @@ class Protobuf
 }
 
 module.exports = Protobuf;
+
+/**
+ * Change all data property which contains @param {Date} data type into string 
+ * Its both painful & annoying to change data type 
+ * from other source into supported data type manually (string or integer)
+ * 
+ * @param {*} data 
+ * @returns data
+ */
+function sanitizeData(data)
+{
+  if (data instanceof Date) {
+    return data.toISOString();
+  }
+  else if ((data && data.constructor.name === "Object") || Array.isArray(data)) {
+    for (let index in data) {
+      data[index] = sanitizeData(data[index]);
+    }
+  }
+  return data;
+}
