@@ -76,13 +76,11 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | isValidUuid | |
 | ✔️ |             | getUuidVersion | |
 | ✔️ |             | mask | |
-| ❓ | Security    | base64Encode | |
-| ❓ |             | base64Decode | |
-| ❓ |             | createRandomKey | |
-| ❓ |             | createRandomSecret | |
-| ❓ |             | encrypt | |
-| ❓ |             | decrypt | |
-| ❓ | Object      | renameKeys    | |
+| ⚠️ | Security    | createRandomKey | |
+| ⚠️ |             | createRandomSecret | |
+| ⚠️ |             | encrypt | |
+| ⚠️ |             | decrypt | |
+| ⚠️ | Object      | renameKeys    | |
 | <td> **Network Package** </td> |
 | ✔️ | Event       | publish | supported: rabbitmq |
 | ✔️ |             | subscribe | |
@@ -134,6 +132,8 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | decode | |
 | ✔️ |             | verify | |
 | ✔️ |             | createSchema | |
+| ✔️ | Base64      | encode | |
+| ✔️ |             | decode | |
 | <td> **Structure Package** |
 | ✔️ | [Entity](https://github.com/gurisa/arjuna/tree/master/.docs/entity.md) | setParams   | set entity property from an object |
 | ✔️ | [SqlModel](https://github.com/gurisa/arjuna/tree/master/.docs/sql-model.md) | instance         | |

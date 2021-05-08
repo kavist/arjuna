@@ -3,22 +3,6 @@ const crypto = require('crypto');
 class Security
 {
 
-  static base64Encode(params)
-  {
-    if (!params || !params.text) {
-			throw new Error("Invalid params");
-		}
-		return Buffer.from(params.text).toString('base64');
-  }
-
-  static base64Decode(params)
-  {
-    if (!params || !params.text) {
-			throw new Error("Invalid params");
-		}
-		return Buffer.from(params.text, 'base64').toString('ascii');
-  }
-
   static createRandomKey()
   {
     return crypto.randomBytes(32);

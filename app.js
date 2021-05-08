@@ -16,6 +16,8 @@ const Date = require('./manipulator/date');
 const Html = require('./manipulator/html');
 const Number = require('./manipulator/number');
 const Text = require('./manipulator/text');
+const Object = require('./manipulator/object');
+const Security = require('./manipulator/security');
 
 const Event = require('./network/event');
 const EventClient = require('./network/event-client');
@@ -30,6 +32,7 @@ const Provider = require('./pattern/provider');
 const Repository = require('./pattern/repository');
 
 const Protobuf = require('./serialization/protobuf');
+const Base64 = require('./serialization/base64');
 
 const Entity = require('./structure/entity');
 const SqlModel = require('./structure/sql-model');
@@ -47,6 +50,8 @@ module.exports = {
   Html: Html,
   Number: Number,
   Text: Text,
+  Object: Object,
+  Security: Security,
 
   Event: Event,
   EventClient: EventClient,
@@ -61,6 +66,7 @@ module.exports = {
   Repository: Repository,
 
   Protobuf: Protobuf,
+  Base64: Base64,
 
   Entity: Entity,
   SqlModel: SqlModel,
