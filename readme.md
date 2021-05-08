@@ -34,13 +34,13 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 - ✔️ Available with test
 - ⚠️ Available without test (Use with your own risk 😆)
 - ❌ Unavailable yet
-- ❓ Ideation from folks
+- ❓ Ideation/request
 
 ---
 
 | Status | Facade   | Method      | Description |
 | --- | ------      | ------      | ------ |
-| <td colspan="3"> **Datastore Package** |
+| <td> **Datastore Package** </td> |
 | ✔️ | Redis       | get | supported: redis |
 | ✔️ |             | set | |
 | ✔️ |             | del | |
@@ -52,13 +52,13 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ | Config      | set | Set object data by a unique key into file |
 | ✔️ |             | get | get object data by a unique key from a file |
 | ✔️ |             | all | get all object data from file |
-| <td colspan="3"> **Log Package** |
+| <td> **Log Package** </td> |
 | ✔️ | Log | report | supported: slack |
 | ✔️ |             | consoleReport    | |
 | ✔️ |             | localReport      | |
 | ✔️ |             | onlineReport     | |
 | ❓ |             | setConfig     | |
-| <td colspan="3"> **Manipulator Package** |
+| <td> **Manipulator Package** </td> |
 | ✔️ | [Date](https://github.com/gurisa/arjuna/tree/master/.docs/date.md) | getFullDate | get date (Format: YYYY-MM-DD HH:mm:ss, Default: Current Date) |
 | ✔️ |             | getOnlyDate | get date (Format: YYYY-MM-DD, Default: Current Date) |
 | ✔️ |             | moment      | return moment instance |
@@ -75,8 +75,15 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | uuid | |
 | ✔️ |             | isValidUuid | |
 | ✔️ |             | getUuidVersion | |
-| ❓ |             | alphabets     | |
-| <td colspan="3"> **Network Package** |
+| ✔️ |             | mask | |
+| ❓ | Security    | base64Encode | |
+| ❓ |             | base64Decode | |
+| ❓ |             | createRandomKey | |
+| ❓ |             | createRandomSecret | |
+| ❓ |             | encrypt | |
+| ❓ |             | decrypt | |
+| ❓ | Object      | renameKeys    | |
+| <td> **Network Package** </td> |
 | ✔️ | Event       | publish | supported: rabbitmq |
 | ✔️ |             | subscribe | |
 | ✔️ |             | enqueue | |
@@ -102,8 +109,9 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | unauthenticate   | |
 | ✔️ |             | badGateway       | |
 | ✔️ |             | requestTimeout   | |
-| <td colspan="3"> **Pattern Package** |
+| <td> **Pattern Package** </td> |
 | ✔️ | Command     | execute | |
+| ✔️ | Query     | get    | |
 | ✔️ | Factory     | create | |
 | ✔️ | Operation   | run | |
 | ✔️ | Provider    | register | |
@@ -121,12 +129,12 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | registerStaticFunction | |
 | ✔️ |             | getMethodNames | |
 | ❓ |             | last     | |
-| <td colspan="3"> **Serialization Package** |
+| <td> **Serialization Package** |
 | ✔️ | [Protobuf](https://github.com/gurisa/arjuna/tree/master/.docs/serialization.md) | encode | |
 | ✔️ |             | decode | |
 | ✔️ |             | verify | |
 | ✔️ |             | createSchema | |
-| <td colspan="3"> **Structure Package** |
+| <td> **Structure Package** |
 | ✔️ | [Entity](https://github.com/gurisa/arjuna/tree/master/.docs/entity.md) | setParams   | set entity property from an object |
 | ✔️ | [SqlModel](https://github.com/gurisa/arjuna/tree/master/.docs/sql-model.md) | instance         | |
 | ✔️ |             | registerDefaultStaticFunctions | |
@@ -136,16 +144,7 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ | ViewModel   | setParams | |
 | ✔️ |             | toObject | |
 | ✔️ |             | toJson | |
-| <td colspan="3"> *Unavailable packages - coming soon, maybe?* |
-| ❌ | Security    | base64Encode | |
-| ❌ |             | base64Decode | |
-| ❌ |             | createRandomKey | |
-| ❌ |             | createRandomSecret | |
-| ❌ |             | encrypt | |
-| ❌ |             | decrypt | |
-| ❌ | Object      | renameKey    | |
-| ❌ |             | renameKeys    | |
-| ❌ | Queries     | get    | |
+| <td> *Unavailable packages - coming soon, maybe?* </td> |
 | ❌ | Controller  | constructor | supported: express req/res |
 | ❌ | Middleware  | validation | supported: express req/res |
 | ❌ |             | logger | |

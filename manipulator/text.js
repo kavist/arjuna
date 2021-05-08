@@ -95,6 +95,34 @@ class Text
 		return version(uuid);
 	}
 
+	/** @return string */
+	static mask(params)
+  {
+    if (!params || !params.value) {
+      throw new Error("Invalid params");
+    }    
+    if (typeof params.value !== "string") {
+      throw new Error("Invalid value");
+    }
+    if (params.masker !== undefined && 
+      typeof params.masker !== "string") {
+      throw new Error("Invalid masker");
+    }
+    const masker = params.masker || "*";
+    const formatedText = [...params.value];
+    const maskerLength = formatedText.length >= 10 ? 3 : 1;
+    return formatedText.map((character, index) => {
+			/** 
+			 * USE MASKER ON FIRST CHARACTER OF THE WORD AND
+			 * USE MASKER IN THE MIDDLE OF THE WORD
+			 */
+      if (index <= maskerLength || index >= formatedText.length - maskerLength) {
+        return masker;
+      }
+      return character;
+    }).join("");
+  }
+
 }
 
 module.exports = Text;
