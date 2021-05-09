@@ -59,16 +59,16 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | onlineReport     | |
 | ❓ |             | setConfig     | |
 | <td> **Manipulator Package** </td> |
-| ✔️ | [Date](https://github.com/gurisa/arjuna/tree/master/.docs/date.md) | getFullDate | get date (Format: YYYY-MM-DD HH:mm:ss, Default: Current Date) |
+| ✔️ | Date | getFullDate | get date (Format: YYYY-MM-DD HH:mm:ss, Default: Current Date) |
 | ✔️ |             | getOnlyDate | get date (Format: YYYY-MM-DD, Default: Current Date) |
 | ✔️ |             | moment      | return moment instance |
 | ✔️ |             | wait | |
 | ✔️ | Html | encode | encode html tag into html entity |
 | ✔️ |             | decode | decode html entity into html tag |
 | ✔️ |             | toText | convert html tag into plain text |
-| ✔️ | [Number](https://github.com/gurisa/arjuna/tree/master/.docs/number.md) | random | |
+| ✔️ | Number | random | |
 | ✔️ |             | currency | |
-| ✔️ | [Text](https://github.com/gurisa/arjuna/tree/master/.docs/text.md) | random | |
+| ✔️ | Text | random | |
 | ✔️ |             | isValidYoutubeUrl | |
 | ✔️ |             | getYoutubeVideoId | |
 | ✔️ |             | slugify | |
@@ -86,7 +86,7 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | subscribe | |
 | ✔️ |             | enqueue | |
 | ✔️ |             | dequeue | |
-| ✔️ | [Request](https://github.com/gurisa/arjuna/tree/master/.docs/request.md) | get         | perform http get request |
+| ✔️ | Request | get         | perform http get request |
 | ✔️ |             | post        | perform http post request |
 | ✔️ |             | put         | perform http put request  |
 | ✔️ |             | patch       | perform http patch request  |
@@ -113,7 +113,7 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ | Factory     | create | |
 | ✔️ | Operation   | run | |
 | ✔️ | Provider    | register | |
-| ✔️ | [Repository](https://github.com/gurisa/arjuna/tree/master/.docs/repository.md) | all | |
+| ✔️ | Repository | all | |
 | ✔️ |             | get | |
 | ✔️ |             | create | |
 | ✔️ |             | first | |
@@ -128,15 +128,15 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | getMethodNames | |
 | ❓ |             | last     | |
 | <td> **Serialization Package** |
-| ✔️ | [Protobuf](https://github.com/gurisa/arjuna/tree/master/.docs/serialization.md) | encode | |
+| ✔️ | Protobuf | encode | |
 | ✔️ |             | decode | |
 | ✔️ |             | verify | |
 | ✔️ |             | createSchema | |
 | ✔️ | Base64      | encode | |
 | ✔️ |             | decode | |
 | <td> **Structure Package** |
-| ✔️ | [Entity](https://github.com/gurisa/arjuna/tree/master/.docs/entity.md) | setParams   | set entity property from an object |
-| ✔️ | [SqlModel](https://github.com/gurisa/arjuna/tree/master/.docs/sql-model.md) | instance         | |
+| ✔️ | Entity | setParams   | set entity property from an object |
+| ✔️ | SqlModel | instance         | |
 | ✔️ |             | registerDefaultStaticFunctions | |
 | ✔️ |             | registerStaticFunctions | |
 | ✔️ |             | createSqlModel | |
