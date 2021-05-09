@@ -76,11 +76,11 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ✔️ |             | isValidUuid | |
 | ✔️ |             | getUuidVersion | |
 | ✔️ |             | mask | |
-| ⚠️ | Security    | createRandomKey | |
-| ⚠️ |             | createRandomSecret | |
-| ⚠️ |             | encrypt | |
-| ⚠️ |             | decrypt | |
-| ✔️ | Object      | renameKeys    | |
+| ✔️ | Security    | createRandomKey | |
+| ✔️ |             | createRandomSecret | |
+| ✔️ |             | encrypt | |
+| ✔️ |             | decrypt | |
+| ✔️ | Object      | renameKey    | |
 | <td> **Network Package** </td> |
 | ✔️ | Event       | publish | supported: rabbitmq |
 | ✔️ |             | subscribe | |
