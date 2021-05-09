@@ -80,7 +80,7 @@ Complete documentations are available [here](https://github.com/gurisa/arjuna/tr
 | ⚠️ |             | createRandomSecret | |
 | ⚠️ |             | encrypt | |
 | ⚠️ |             | decrypt | |
-| ⚠️ | Object      | renameKeys    | |
+| ✔️ | Object      | renameKeys    | |
 | <td> **Network Package** </td> |
 | ✔️ | Event       | publish | supported: rabbitmq |
 | ✔️ |             | subscribe | |

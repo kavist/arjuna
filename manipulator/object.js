@@ -1,44 +1,47 @@
 
-class Object
+class Objects
 {
 
   /**
-   * 
-   * @param {Array} params.data 
+   * @param {Object} params
    * @returns 
    */
-  static renameKeys(params)
+  static renameKey(params)
   {
-    if (!params || !params.data || 
-      !Array.isArray(params.data) && params.data.length === 0) {
+    if (!params || !params.data || !params.keys) {
       throw new Error('Invalid params');
     }
-
-    const filteredParams = params.data.filter(object => {
-      return object.oldKey !== undefined && 
-        object.newKey !== undefined &&
-        typeof object.oldKey === "string" &&
-        typeof object.newKey === "string";
-    });
-    if (filteredParams.length !== params.data.length) {
-      throw new Error("Data contain invalid property");
+    if (Object.prototype.toString.call(params.data) !== "[object Object]") {
+      throw new Error('Data should be an object');
+    }
+    if (!Array.isArray(params.keys) || params.keys.length === 0) {
+      throw new Error('Keys should be valid array containing at least on element');
     }
 
+    const filteredParams = params.keys.filter(param => {
+      return param.oldKey !== undefined && 
+        param.newKey !== undefined &&
+        typeof param.oldKey === "string" &&
+        typeof param.newKey === "string";
+    });
+    if (filteredParams.length !== params.keys.length) {
+      throw new Error("Keys contain invalid property");
+    }
+
+    let data = params.data;
     for (let index in filteredParams) {
-      object = renameKey(
-        object, 
-        filteredParams[index].oldKey, 
-        filteredParams[index].newKey
+      data = changeKey(
+        data, filteredParams[index].oldKey, filteredParams[index].newKey
       );
     }
-    return object;
+    return data;
   }
 
 }
 
-module.exports = Object;
+module.exports = Objects;
 
-function renameKey(object, oldKey, newKey)
+function changeKey(object, oldKey, newKey)
 {
   /** 
    * KEY IS SAME
