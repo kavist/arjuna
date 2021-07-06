@@ -27,7 +27,7 @@ In NodeJS
 📋 Docs
 ---
 
-Complete documentations are available [here](https://github.com/gurisa/arjuna/tree/master/docs)
+Complete documentations are available [here](https://github.com/idaman-id/arjuna/tree/master/docs)
 
 **Legends:**
 
@@ -178,7 +178,7 @@ Running integration test (make sure you setup .env.test, check .env.example for 
 
 Test Coverages
 
-![Test coverages](https://github.com/gurisa/arjuna/blob/master/assets/image/coverage.png?raw=true)
+![Test coverages](https://github.com/idaman-id/arjuna/blob/master/assets/image/coverage.png?raw=true)
 
 😋 Dependencies
 ---
@@ -196,7 +196,7 @@ Test Coverages
 ---
 [![](https://github.com/kokoraka.png?size=50)](https://github.com/kokoraka)
 
-Feel free to [contribute](https://github.com/gurisa/arjuna/pulls)
+Feel free to [contribute](https://github.com/idaman-id/arjuna/pulls)
 
 💖 Support
 ---

@@ -1,6 +1,6 @@
 {
   "name": "arjuna",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "nodejs boilerplate & utility",
   "main": "app.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gurisa/arjuna.git"
+    "url": "git+https://github.com/idaman-id/arjuna.git"
   },
   "keywords": [
     "boilerplate",
@@ -42,12 +42,12 @@
     "nyc",
     "laravel-like"
   ],
-  "author": "Raka Suryaardi Widjaja <raka.suryadi@gmail.com> (gurisa.com)",
+  "author": "Raka Suryaardi Widjaja <raka.suryadi@gmail.com> (idaman-id.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/gurisa/arjuna/issues"
+    "url": "https://github.com/idaman-id/arjuna/issues"
   },
-  "homepage": "https://github.com/gurisa/arjuna#readme",
+  "homepage": "https://github.com/idaman-id/arjuna#readme",
   "engines": {
     "node": ">= 8.0.0"
   },
@@ -56,8 +56,7 @@
     "amqplib": "^0.6.0",
     "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "chai-as-promised": "^7.1.1",
+    "body-parser": "^1.19.0",    
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",
     "form-data": "^3.0.0",
@@ -81,6 +80,7 @@
     "chai": "^4.3.0",
     "chai-like": "^1.1.1",
     "chai-things": "^0.2.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^8.2.1",
     "nodemon": "^2.0.7",
     "nyc": "^15.1.0"

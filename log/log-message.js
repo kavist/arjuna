@@ -71,7 +71,7 @@ class LogMessage
   static getDefaultFooter(footer) 
   {
     if (!footer) {
-      return `Report delivered by: Arjuna [https://github.com/gurisa/arjuna]`;
+      return `Report delivered by: Arjuna [https://github.com/idaman-id/arjuna]`;
     }
     return footer;
   }
