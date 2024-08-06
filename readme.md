@@ -57,7 +57,7 @@ Complete documentations are available [here](https://github.com/idaman-id/arjuna
 | ✔️ |             | get | get object data by a unique key from a file |
 | ✔️ |             | all | get all object data from file |
 | <td> **Log Package** </td> |
-| ✔️ | Log | report | supported: slack |
+| ✔️ | Log | report | |
 | ✔️ |             | consoleReport    | |
 | ✔️ |             | localReport      | |
 | ✔️ |             | onlineReport     | |

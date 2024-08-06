@@ -3,8 +3,6 @@ const chai = require('chai'), expect = chai.expect;
 chai.use(require('chai-like'));
 chai.use(require('chai-things'));
 
-const { logSlack } = require('../../../.utility/config');
-
 const Log = require('../../../log/log');
 
 describe('log report method', function() {
@@ -31,7 +29,6 @@ describe('log report method', function() {
       messengers: [
         'online'
       ],
-      endpoint: logSlack.webhook_url
     });
   });
   it('should success when both messenger passed', async function() {
@@ -40,7 +37,6 @@ describe('log report method', function() {
         'local', 'online'
       ],
       logDirectory: '.utility/storage',
-      endpoint: logSlack.webhook_url
     });
   });
 

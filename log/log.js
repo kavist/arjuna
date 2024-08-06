@@ -2,7 +2,6 @@
 const path = require('path');
 const rfs = require('rotating-file-stream');
 
-const LogSlack = require('./log-slack');
 const LogMessage = require('./log-message');
 
 class Log 
@@ -97,11 +96,6 @@ class Log
     if (params.skip === true || params.skipOnline === true) {
       return;
     }
-
-    LogSlack.send({
-      ...params,
-      webhook_url: params.endpoint
-    });
   }
 
 }

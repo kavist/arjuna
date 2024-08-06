@@ -1,6 +1,6 @@
 {
   "name": "@kavist/arjuna",
-  "version": "1.1.2",
+  "version": "1.1.2-ps.1",
   "description": "Node.js Boilerplate, revisited",
   "main": "app.js",
   "scripts": {
@@ -19,7 +19,6 @@
     "utility",
     "nodejs",
     "express",
-    "slack",
     "amqplib",
     "axios",
     "bcryptjs",
@@ -52,7 +51,6 @@
     "node": ">= 14.21.3"
   },
   "dependencies": {
-    "@slack/webhook": "^7.0.2",
     "amqplib": "^0.10.4",
     "axios": "^0.28.1",
     "bcryptjs": "^2.4.3",

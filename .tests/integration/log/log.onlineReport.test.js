@@ -3,8 +3,6 @@ const chai = require('chai'), expect = chai.expect;
 chai.use(require('chai-like'));
 chai.use(require('chai-things'));
 
-const { logSlack } = require('../../../.utility/config');
-
 const LogMessage = require('../../../log/log-message');
 const Log = require('../../../log/log');
 
@@ -49,7 +47,6 @@ describe('log onlineReport method', function() {
     expect(function() { 
       Log.onlineReport({
         data: 'should fail when no messengers logDirectory passed',
-        endpoint: null
       });
     }).to.throw('Invalid params');
   });
@@ -60,7 +57,6 @@ describe('log onlineReport method', function() {
     });
     Log.onlineReport({
       data: message,
-      endpoint: logSlack.webhook_url
     });
   }); 
 
