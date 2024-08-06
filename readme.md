@@ -1,6 +1,6 @@
-# ⚠ This is just a hack ⚠
+# ⚠ Caution: This is just a hack ⚠
 
-> I am not the original maintainer of [Arjuna](https://github.com/idaman-id/arjuna/tree/master/docs). This repo is merely a hack to satisfy NPM Audit results, since the original package is not updated for a long time. Do not expect any bug fixes or new features out of this repo.
+> I am **not** the original maintainer of [Arjuna](https://github.com/idaman-id/arjuna). This package is merely a hack to satisfy NPM Audit results, since the original package is not updated for a long time. Do **not** expect any bug fixes or new features out of this package.
 
 # Arjuna 😐
 Death simple Node.js boilerplate & utility wrapper
